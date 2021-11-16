@@ -17,7 +17,7 @@ def click_adguard_browser_extension():
     pyautogui.click(x=300, y=933)
     
 # define a function to fill the selection of the product
-def fill_product_version():
+def fill_product():
 
     click_product_selection()
 

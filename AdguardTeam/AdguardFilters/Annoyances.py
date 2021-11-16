@@ -1,7 +1,17 @@
-from functions import *
-from 1prerequisites import click_on_all_prerequisites_checkboxes
-from 2product import fill_product_version
-from 3version import fill_product_version
+from zfunctions import *
+from aprerequisites import click_on_all_prerequisites_checkboxes
+from bproduct import fill_product
+from cversion import fill_product_version
+import dproblem
+from ebrowser_device import fill_browser_and_device
+from furl import click_url_box
+from gfilter import fill_filter
+
+
+
+
+
+
 
 
 # create issue on the https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml
@@ -27,19 +37,33 @@ def main():
 
     pyautogui.typewrite(domain)
 
-    sleep(0.01)
-
     click_on_all_prerequisites_checkboxes()
 
-    sleep(0.01)
+
+    fill_product()
+
 
     fill_product_version()
 
-    sleep(0.01)
-
     move_down_one_page()
 
-    sleep(0.01)
+    fill_product()
+
+
+    fill_product_version()
+
+
+    dproblem.fill_problem_as_annoyance()
+
+    fill_browser_and_device()
+
+    click_url_box()
+
+    pyautogui.typewrite(url)
+
+    fill_filter()
+
+
 
 
 

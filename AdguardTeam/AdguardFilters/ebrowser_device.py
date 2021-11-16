@@ -22,7 +22,7 @@ def select_device():
     pyautogui.click(x=311, y=581)
 
 
-def main():
+def fill_browser_and_device():
 
     click_browser_selection_button()
 
@@ -32,10 +32,18 @@ def main():
 
     sleep(0.01)
 
+    click_browser_selection_button()
+
+    sleep(0.01)
+
     click_device_selection_button()
 
     sleep(0.01)
 
     select_device()
+
+    sleep(0.01)
+
+    click_device_selection_button()
 
     sleep(0.01)
