@@ -25,10 +25,10 @@ def fill_product():
 
     click_product_selection()
 
-    sleep(0.01)
+    sleep(0.1)
 
     click_adguard_browser_extension()
 
-    sleep(0.01)
+    sleep(0.1)
 
     click_product_selection()

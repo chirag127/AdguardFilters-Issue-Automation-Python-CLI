@@ -15,17 +15,17 @@ def click_annoyance():
 
     pyautogui.click(x=352, y=558)
 
-    sleep(0.01)
+    sleep(0.1)
 
 
 def fill_problem_as_annoyance():
 
     click_selection_button()
 
-    sleep(0.01)
+    sleep(0.1)
 
     click_annoyance()
 
-    sleep(0.01)
+    sleep(0.1)
 
     click_selection_button()

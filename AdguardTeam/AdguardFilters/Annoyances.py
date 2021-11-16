@@ -9,8 +9,11 @@ from gfilter import fill_filter
 from hscreenshot import fill_screenshot
 from iprivacy import click_privacy
 
+page_down = 816
 
-# create issue on the https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml
+
+# create issue on the
+#  https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml
 
 def main():
 
@@ -26,8 +29,9 @@ def main():
     # parse the url to get the domain name
     domain = urlparse(url).netloc
 
-    webbrowser.open(
-        "https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml")
+    pyautogui.hotkey('ctrl', 'w')
+
+    webbrowser.open("https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml")
 
     sleep(3)
 
@@ -62,6 +66,12 @@ def main():
     fill_screenshot()
 
     click_privacy()
+
+    sleep(0.1)
+
+    pyautogui.press('end')
+
+    go_to_next_tab()
 
 
 if __name__ == "__main__":

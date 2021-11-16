@@ -18,8 +18,8 @@ def click_adgurad_filter_box():
 
 def fill_filter():
     click_filter_selection_button()
-    sleep(0.01)
+    sleep(0.1)
     click_adgurad_filter_box()
-    sleep(0.01)
+    sleep(0.1)
     click_filter_selection_button()
-    sleep(0.01)
+    sleep(0.1)

@@ -13,6 +13,6 @@ def fill_product_version():
 
     click_selection_button()
 
-    sleep(0.01)
+    sleep(0.1)
 
     pyautogui.typewrite('3.6.14')
