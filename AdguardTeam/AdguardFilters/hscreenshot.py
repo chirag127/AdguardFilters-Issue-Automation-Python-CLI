@@ -26,3 +26,9 @@ def fill_screenshot():
     pyautogui.hotkey('win', 'num2')
 
     sleep(0.5)
+
+
+if __name__ == '__main__':
+
+    fill_screenshot()
+

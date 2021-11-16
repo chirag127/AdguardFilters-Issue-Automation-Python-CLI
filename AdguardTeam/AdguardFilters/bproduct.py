@@ -11,12 +11,12 @@ import pyautogui
 
 
 def click_product_selection():
-    pyautogui.click(x=300, y=886)
+    pyautogui.click(x=320, y=886)
 
 
 # define a function to click the adguard browser extension
 def click_adguard_browser_extension():
-    pyautogui.click(x=300, y=933)
+    pyautogui.click(x=320, y=933)
 
 # define a function to fill the selection of the product
 

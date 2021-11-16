@@ -38,16 +38,15 @@ def main():
     pyautogui.typewrite(domain)
 
     click_on_all_prerequisites_checkboxes()
+    
 
     fill_product()
-
-    fill_product_version()
 
     move_down_one_page()
 
-    fill_product()
 
     fill_product_version()
+
 
     dproblem.fill_problem_as_annoyance()
 
@@ -55,7 +54,7 @@ def main():
 
     click_url_box()
 
-    pyautogui.typewrite(url)
+    pyautogui.typewrite(f"`{url}`")
 
     fill_filter()
 
@@ -71,7 +70,9 @@ def main():
 
     pyautogui.press('end')
 
-    go_to_next_tab()
+    open_last_closed_tab()
+
+    close_tab()
 
 
 if __name__ == "__main__":
