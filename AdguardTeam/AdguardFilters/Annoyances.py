@@ -1,4 +1,5 @@
 from functions import *
+from prerequisites import click_on_all_prerequisites_checkboxes
 
 
 # create issue on the https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml
@@ -6,6 +7,8 @@ from functions import *
 
 
 def main():
+
+    sleep(1)
     
     pyautogui.hotkey('alt', 'd')
 

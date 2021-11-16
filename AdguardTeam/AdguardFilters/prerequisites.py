@@ -1,14 +1,3 @@
-# Physical: {X=289,Y=651}
-# Physical: {X=290,Y=689}
-# Physical: {X=290,Y=726}
-# Physical: {X=289,Y=761}
-# Physical: {X=288,Y=800}
-
-# This site DOES NOT contains sexually explicit material, otherwise use NSFW-specific form;; *
-# Filters were updated before reproduced an issue; *
-# AdGuard product version is up-to-date; *
-# Browser version is up-to-date; *
-# If the site or app is broken, disabling AdGuard protection resolves an issue. *
 
 import pyautogui
 
