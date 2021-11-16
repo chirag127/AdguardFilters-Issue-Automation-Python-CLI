@@ -9,11 +9,15 @@ from time import sleep
 
 def click_url_box():
 
+    sleep(1)
+
+    urlabovetextcoordinates = pyautogui.locateOnScreen('urlabovetext.png')
+
     pyautogui.moveTo(x=316, y=671, duration=0.1)
 
     pyautogui.click()
 
-    sleep(0.5)
+    sleep(4)
 
 
 if __name__ == '__main__':
