@@ -19,13 +19,3 @@ def click_on_all_prerequisites_checkboxes():
 
     # click on the checkbox "If the site or app is broken, disabling AdGuard protection resolves an issue."
     pyautogui.click(x=289, y=800)
-
-
-
-
-
-
-
-
-
-

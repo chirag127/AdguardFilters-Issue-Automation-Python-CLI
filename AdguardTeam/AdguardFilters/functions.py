@@ -29,3 +29,6 @@ def copyselectedtext():
     pyautogui.hotkey('ctrl', 'c')
 
 
+# define a function that will move down one page
+def move_down_one_page():
+    pyautogui.hotkey('pagedown')
