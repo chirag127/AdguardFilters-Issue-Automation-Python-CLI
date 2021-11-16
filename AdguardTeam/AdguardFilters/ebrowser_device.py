@@ -8,15 +8,17 @@ from time import sleep
 # Physical: {X=311,Y=581}
 
 
-
 def click_browser_selection_button():
     pyautogui.click(x=316, y=430)
+
 
 def select_browser():
     pyautogui.click(x=322, y=524)
 
+
 def click_device_selection_button():
     pyautogui.click(x=320, y=534)
+
 
 def select_device():
     pyautogui.click(x=311, y=581)

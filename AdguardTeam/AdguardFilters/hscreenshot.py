@@ -25,8 +25,4 @@ def fill_screenshot():
 
     pyautogui.hotkey('win', 'num2')
 
-
     sleep(0.5)
-
-    
-

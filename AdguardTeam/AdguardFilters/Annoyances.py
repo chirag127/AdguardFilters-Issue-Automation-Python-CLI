@@ -10,12 +10,6 @@ from hscreenshot import fill_screenshot
 from iprivacy import click_privacy
 
 
-
-
-
-
-
-
 # create issue on the https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml
 
 def main():
@@ -41,9 +35,7 @@ def main():
 
     click_on_all_prerequisites_checkboxes()
 
-
     fill_product()
-
 
     fill_product_version()
 
@@ -51,9 +43,7 @@ def main():
 
     fill_product()
 
-
     fill_product_version()
-
 
     dproblem.fill_problem_as_annoyance()
 
@@ -62,7 +52,6 @@ def main():
     click_url_box()
 
     pyautogui.typewrite(url)
-
 
     fill_filter()
 
@@ -73,17 +62,6 @@ def main():
     fill_screenshot()
 
     click_privacy()
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == "__main__":

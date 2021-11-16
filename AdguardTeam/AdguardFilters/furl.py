@@ -6,14 +6,14 @@ from time import sleep
 
 # Physical: {X=302,Y=671}
 
+
 def click_url_box():
 
-    pyautogui.moveTo(x=316, y=671,duration=0.1)
+    pyautogui.moveTo(x=316, y=671, duration=0.1)
 
     pyautogui.click()
 
     sleep(0.5)
-
 
 
 if __name__ == '__main__':
@@ -25,8 +25,3 @@ if __name__ == '__main__':
             click_url_box()
 
             sleep(1)
-
-    
-
-
-    

@@ -7,8 +7,10 @@
 import pyautogui
 from time import sleep
 
+
 def click_filter_selection_button():
-    pyautogui.click(x=300 , y=792)
+    pyautogui.click(x=300, y=792)
+
 
 def click_adgurad_filter_box():
     pyautogui.click(x=308, y=845)
