@@ -1,0 +1,72 @@
+# Physical: {X=296,Y=538}; Scaled: {X=236,Y=430}; Relative: {X=296,Y=538}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #F6F8FA
+# Physical: {X=290,Y=688}; Scaled: {X=232,Y=550}; Relative: {X=290,Y=688}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #D3D3D3
+# Physical: {X=290,Y=725}; Scaled: {X=232,Y=580}; Relative: {X=290,Y=725}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #FFFFFF
+# Physical: {X=289,Y=763}; Scaled: {X=231,Y=610}; Relative: {X=289,Y=763}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #FFFFFF
+# Physical: {X=285,Y=803}; Scaled: {X=228,Y=642}; Relative: {X=285,Y=803}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #FFFFFF
+# Physical: {X=288,Y=837}; Scaled: {X=230,Y=669}; Relative: {X=288,Y=837}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #FFFFFF
+
+
+
+Physical: {X=319,Y=161}; Scaled: {X=255,Y=128}; Relative: {X=319,Y=161}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #242930
+Physical: {X=323,Y=486}; Scaled: {X=258,Y=388}; Relative: {X=323,Y=486}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #F4F6F8
+Physical: {X=338,Y=284}; Scaled: {X=270,Y=227}; Relative: {X=338,Y=284}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #F6F8FA
+
+
+
+Name	About	Labels	Assignees
+Bug report	Report an issue with filters	Unsorted	
+Prerequisites
+To avoid invalid reports, please check and confirm following checkboxes.
+It is highly recommended to use our Web Reporting Tool instead of opening an issue using GitHub directly.
+
+ This site DOES NOT contains sexually explicit material, otherwise use NSFW-specific form;; *
+ Filters were updated before reproduced an issue; *
+ AdGuard product version is up-to-date; *
+ Browser version is up-to-date; *
+ If the site or app is broken, disabling AdGuard protection resolves an issue. *
+What product do you use?
+AdGuard version
+What version of our software are you running?
+
+for example, 7.7.2, 2.6.1.1060 nightly, 3.6.14 beta
+What type of problem have you encountered?
+If the problem does not fall under any category that is listed here, please contact our tech support - support@adguard.com
+
+Which browser(s) is used?
+Which device is used?
+Where did you encounter the problem?
+Please enter address of the page or download link of the affected app.
+
+ex. https://example.com/
+What filters do you have enabled?
+Select enabled filters from the list or enter URLs of any custom filters in comment below.
+
+What Stealth Mode options do you have enabled?
+Please mark any of these options if you have them enabled in Stealth Mode
+
+Add your comment and screenshots
+Please add screenshots of the problem. You can attach images by clicking this area to highlight it and then dragging files in or paste images from clipboard;
+Use <details> </details> tag to hide screenshots under the spoiler;
+Please describe the issue extensively unless it is absolutely clear from the screenshot what the problem is;
+You can also indicate any other information that you think the developers should know.
+Warning: Please remove private info before upload screenshots!
+
+1. <comment>
+
+2. Screenshots
+<details><summary>Screenshot 1:</summary>
+
+<!-- paste screenshot here -->
+
+</details>
+
+<details><summary>Screenshot N:</summary>
+
+<!-- paste screenshot here -->
+
+</details>
+
+Privacy
+By submitting this issue, you agree that report does not contain private info
+
+ I agree to follow this condition *
