@@ -6,6 +6,8 @@ import dproblem
 from ebrowser_device import fill_browser_and_device
 from furl import click_url_box
 from gfilter import fill_filter
+from hscreenshot import fill_screenshot
+from iprivacy import click_privacy
 
 
 
@@ -61,7 +63,22 @@ def main():
 
     pyautogui.typewrite(url)
 
+
     fill_filter()
+
+    move_down_one_page()
+
+    sleep(0.5)
+
+    fill_screenshot()
+
+    click_privacy()
+
+
+
+
+
+
 
 
 
