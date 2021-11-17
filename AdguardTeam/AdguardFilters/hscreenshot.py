@@ -16,10 +16,23 @@ def fill_screenshot():
 
     pyautogui.hotkey('ctrl', 'a')
 
-    pyautogui.typewrite("""<details><summary>Screenshot :</summary>
+    pyautogui.typewrite("""<details><summary>Screenshots:</summary>
 
 
-</details>""")
+
+
+
+
+
+
+
+</details><br/>
+
+<details><summary>System configuration:</summary>
+
+![image](https://user-images.githubusercontent.com/76880977/141497551-099fafbf-933f-44c7-956a-f88fc1bcb5d5.png)
+
+</details><br/>""")
 
     pyautogui.click(362, 635)
 
@@ -31,4 +44,3 @@ def fill_screenshot():
 if __name__ == '__main__':
 
     fill_screenshot()
-

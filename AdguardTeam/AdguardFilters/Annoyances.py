@@ -8,6 +8,7 @@ from furl import click_url_box
 from gfilter import fill_filter
 from hscreenshot import fill_screenshot
 from iprivacy import click_privacy
+from jsubmit import click_on_submit_new_issue
 
 page_down = 816
 
@@ -31,22 +32,20 @@ def main():
 
     pyautogui.hotkey('ctrl', 'w')
 
-    webbrowser.open("https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml")
+    webbrowser.open(
+        "https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml")
 
     sleep(3)
 
     pyautogui.typewrite(domain)
 
     click_on_all_prerequisites_checkboxes()
-    
 
     fill_product()
 
     move_down_one_page()
 
-
     fill_product_version()
-
 
     dproblem.fill_problem_as_annoyance()
 
@@ -64,11 +63,15 @@ def main():
 
     fill_screenshot()
 
-    click_privacy()
+    pyautogui.click(x=100, y=500)
 
-    sleep(0.1)
+    sleep(3)
 
     pyautogui.press('end')
+
+    click_privacy()
+
+    # click_on_submit_new_issue()
 
     open_last_closed_tab()
 
