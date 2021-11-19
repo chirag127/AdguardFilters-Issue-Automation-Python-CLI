@@ -65,7 +65,7 @@ def main():
 
     pyautogui.click(x=100, y=500)
 
-    sleep(3)
+    sleep(0.5)
 
     pyautogui.press('end')
 
