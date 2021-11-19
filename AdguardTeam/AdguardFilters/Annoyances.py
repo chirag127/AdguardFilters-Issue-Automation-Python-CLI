@@ -71,8 +71,6 @@ def main():
 
     click_privacy()
 
-    # click_on_submit_new_issue()
-
     open_last_closed_tab()
 
     close_tab()
