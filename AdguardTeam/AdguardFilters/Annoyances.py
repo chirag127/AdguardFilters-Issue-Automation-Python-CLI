@@ -39,13 +39,13 @@ def main():
 
     pyautogui.typewrite(domain)
 
-    click_on_all_prerequisites_checkboxes()
+    # click_on_all_prerequisites_checkboxes()
 
     fill_product()
 
     move_down_one_page()
 
-    fill_product_version()
+    # fill_product_version()
 
     dproblem.fill_problem_as_annoyance()
 
