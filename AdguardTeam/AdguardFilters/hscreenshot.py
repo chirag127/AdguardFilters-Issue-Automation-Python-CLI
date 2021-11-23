@@ -8,6 +8,7 @@ import os
 
 # define the fuction to click screenshot body
 def screenshot_body():
+
     pyautogui.click(393, 500)
 
 

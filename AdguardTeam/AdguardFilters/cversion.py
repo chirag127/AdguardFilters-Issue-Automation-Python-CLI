@@ -5,6 +5,7 @@ import pyautogui
 
 
 def click_selection_button():
+
     pyautogui.click(x=314, y=214)
 
 

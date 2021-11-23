@@ -6,6 +6,7 @@ from time import sleep
 
 
 def click_selection_button():
+
     pyautogui.click(x=300, y=335)
 
 # fill problem as annoyance
