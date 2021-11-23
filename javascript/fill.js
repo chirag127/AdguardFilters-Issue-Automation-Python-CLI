@@ -10,8 +10,8 @@
 // ==/UserScript==
 
 // id="issue_form_terms_i_agree_to_follow_this_condition"
-(function() {
-    'use strict';
+(function () {
+  "use strict";
 
   document.getElementById(
     "issue_form_prerequisites_this_site_does_not_contains_sexually_explicit_material_otherwise_use_nsfw-specific_form_new_template_bug_report_nsfw_yml"
@@ -28,7 +28,9 @@
   document.getElementById(
     "issue_form_prerequisites_if_the_site_or_app_is_broken_disabling_adguard_protection_resolves_an_issue"
   ).checked = true;
-  document.getElementById("issue_form_terms_i_agree_to_follow_this_condition").checked = true;
+  document.getElementById(
+    "issue_form_terms_i_agree_to_follow_this_condition"
+  ).checked = true;
 
   document.getElementById("issue_form_version").value = "3.6.14";
 })();

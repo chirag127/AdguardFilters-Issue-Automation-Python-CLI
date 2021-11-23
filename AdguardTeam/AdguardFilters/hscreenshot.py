@@ -3,7 +3,7 @@
 
 import pyautogui
 from time import sleep
-import os       
+import os
 
 
 # define the fuction to click screenshot body

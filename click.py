@@ -16,12 +16,8 @@ if __name__ == "__main__":
 
                 sleep(1)
 
-
                 pyautogui.press('tab')
-
 
                 if keyboard.is_pressed('q'):
 
                     break
-
-
