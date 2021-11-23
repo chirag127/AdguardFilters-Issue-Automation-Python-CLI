@@ -31,7 +31,4 @@
   document.getElementById("issue_form_terms_i_agree_to_follow_this_condition").checked = true;
 
   document.getElementById("issue_form_version").value = "3.6.14";
-
-
-
 })();

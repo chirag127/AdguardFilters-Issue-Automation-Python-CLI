@@ -1,10 +1,10 @@
+import webbrowser
 from time import sleep
 from urllib.parse import urlparse
+
 import clipboard
 import keyboard
 import pyautogui
-import pyautogui
-import webbrowser
 
 
 # define a function that will open the last closed tab

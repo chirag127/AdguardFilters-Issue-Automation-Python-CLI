@@ -69,7 +69,7 @@ def main():
 
     pyautogui.press('end')
 
-    click_privacy()
+    # click_privacy()
 
     open_last_closed_tab()
 
