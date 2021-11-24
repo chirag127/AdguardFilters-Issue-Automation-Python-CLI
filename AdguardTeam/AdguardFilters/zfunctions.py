@@ -1,7 +1,6 @@
 import webbrowser
 from time import sleep
 from urllib.parse import urlparse
-
 import clipboard
 import keyboard
 import pyautogui

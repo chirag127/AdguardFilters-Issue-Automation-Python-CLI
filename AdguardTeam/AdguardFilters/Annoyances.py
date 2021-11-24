@@ -59,13 +59,13 @@ def main():
 
     move_down_one_page()
 
-    sleep(0.5)
+    sleep(0.01)
 
     fill_screenshot()
 
     pyautogui.click(x=100, y=500)
 
-    sleep(0.5)
+    sleep(0.01)
 
     pyautogui.press('end')
 

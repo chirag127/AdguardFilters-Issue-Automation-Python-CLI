@@ -32,20 +32,20 @@ def fill_browser_and_device():
 
     click_browser_selection_button()
 
-    sleep(0.1)
+    sleep(0.001)
 
     select_browser()
 
-    sleep(0.1)
+    sleep(0.001)
 
     click_browser_selection_button()
 
-    sleep(0.1)
+    sleep(0.001)
 
     click_device_selection_button()
 
-    sleep(0.1)
+    sleep(0.001)
 
     select_device()
 
-    sleep(0.1)
+    sleep(0.001)

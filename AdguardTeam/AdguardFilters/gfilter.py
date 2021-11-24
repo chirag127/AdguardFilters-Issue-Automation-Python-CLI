@@ -45,26 +45,14 @@ def fill_filter():
 
     click_filter_selection_button()
 
-    sleep(0.01)
-
-    click_adgurad_filter_box()
-
     click_Adguard_Base_filter_box()
 
     # press page down
 
     pyautogui.press('pagedown')
 
-    sleep(0.01)
-
     click_Adguard_social_filter_box()
-
-    sleep(0.01)
 
     click_Adguard_Annoyance_filter_box()
 
-    sleep(0.01)
-
     click_filter_selection_button()
-
-    sleep(0.1)

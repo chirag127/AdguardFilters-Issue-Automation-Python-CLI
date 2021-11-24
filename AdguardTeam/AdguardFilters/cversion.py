@@ -1,4 +1,3 @@
-from time import sleep
 import pyautogui
 
 # Physical: {X=314,Y=214}
@@ -13,7 +12,5 @@ def click_selection_button():
 def fill_product_version():
 
     click_selection_button()
-
-    sleep(0.1)
 
     pyautogui.typewrite('3.6.14')
