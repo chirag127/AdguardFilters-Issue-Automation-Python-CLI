@@ -33,19 +33,13 @@ def main():
     pyautogui.hotkey('ctrl', 'w')
 
     webbrowser.open(
-        "https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml")
+        f"https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml&title={domain}")
 
     sleep(3)
-
-    pyautogui.typewrite(domain)
-
-    # click_on_all_prerequisites_checkboxes()
 
     fill_product()
 
     move_down_one_page()
-
-    # fill_product_version()
 
     dproblem.fill_problem_as_annoyance()
 
