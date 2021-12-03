@@ -15,6 +15,7 @@ page_down = 816
 
 # create issue on the
 #  https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml
+# https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml
 
 def main():
 
@@ -47,7 +48,9 @@ def main():
 
     click_url_box()
 
-    pyautogui.typewrite(f"`{url}`")
+    pyautogui.hotkey('ctrl', 'v')
+
+    sleep(0.1)
 
     fill_filter()
 
