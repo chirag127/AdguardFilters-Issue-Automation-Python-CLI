@@ -2,6 +2,7 @@ from bproduct import fill_product
 from ebrowser_device import fill_browser_and_device
 from furl import click_url_box
 from gfilter import fill_filter
+from jsubmit import click_on_submit_new_issue
 from zfunctions import *
 import clipboard
 import dproblem
@@ -108,8 +109,27 @@ def main():
 
         pyautogui.press('end')
 
+        sleep(0.01)
+
+        click_on_submit_new_issue()
+
+        sleep(0.01)
+
+        pyautogui.hotkey('ctrl', 'w')
+
+        sleep(0.01)
+        
         open_last_closed_tab()
 
+        sleep(0.01)
+
+        pyautogui.hotkey('ctrl', 'w')
+
+        sleep(0.01)
+
+        print("done")
+
+    print("loop completed")
 
 if __name__ == "__main__":
 
