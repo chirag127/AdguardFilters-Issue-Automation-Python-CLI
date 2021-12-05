@@ -110,8 +110,6 @@ def main():
 
         open_last_closed_tab()
 
-        close_tab()
-
 
 if __name__ == "__main__":
 
