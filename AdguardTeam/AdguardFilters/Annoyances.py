@@ -1,14 +1,12 @@
-from zfunctions import *
-from aprerequisites import click_on_all_prerequisites_checkboxes
 from bproduct import fill_product
-from cversion import fill_product_version
-import dproblem
 from ebrowser_device import fill_browser_and_device
 from furl import click_url_box
 from gfilter import fill_filter
-from hscreenshot import fill_screenshot
-from iprivacy import click_privacy
-from jsubmit import click_on_submit_new_issue
+from zfunctions import *
+import clipboard
+import dproblem
+import keyboard
+import webbrowser
 
 page_down = 816
 
@@ -18,6 +16,8 @@ page_down = 816
 # https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml
 
 def main():
+
+    ss = pyautogui.screenshot(region=(0, 88, 1920, 932))
 
     sleep(1)
 
@@ -33,8 +33,11 @@ def main():
 
     pyautogui.hotkey('ctrl', 'w')
 
+    # webbrowser.open(
+    #     f"https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml&title={domain}")
+
     webbrowser.open(
-        f"https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml&title={domain}")
+        f"https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml&title={domain}")
 
     sleep(3)
 
@@ -56,17 +59,37 @@ def main():
 
     move_down_one_page()
 
-    sleep(0.01)
+    # define the fuction to click screenshot body
+    def screenshot_body():
 
-    fill_screenshot()
+        pyautogui.click(393, 500)
+
+
+
+    screenshot_body()
+
+    pyautogui.hotkey('ctrl', 'a')
+
+    pyautogui.typewrite(f"""<details><summary>Screenshots:</summary>
+
+
+
+
+
+
+
+
+
+</details><br/>""")
+
+
+    # take focus out of the screenshot body
 
     pyautogui.click(x=100, y=500)
 
     sleep(0.01)
 
     pyautogui.press('end')
-
-    # click_privacy()
 
     open_last_closed_tab()
 
