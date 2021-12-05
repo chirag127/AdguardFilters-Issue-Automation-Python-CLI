@@ -3,6 +3,8 @@ from ebrowser_device import fill_browser_and_device
 from furl import click_url_box
 from gfilter import fill_filter
 from jsubmit import click_on_submit_new_issue
+from time import sleep
+from urllib.parse import urlparse
 from zfunctions import *
 import clipboard
 import dproblem
