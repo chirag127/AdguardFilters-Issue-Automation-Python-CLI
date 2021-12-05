@@ -99,24 +99,7 @@ def main():
 
         pyautogui.hotkey('ctrl', 'v')
 
-        # take focus out of the screenshot body
-
-        pyautogui.click(x=100, y=500)
-
-        sleep(0.01)
-
-        pyautogui.press('end')
-
-        sleep(0.01)
-
-        click_on_submit_new_issue()
-
-        sleep(0.01)
-
-        pyautogui.hotkey('ctrl', 'w')
-
-        sleep(0.01)
-
+        sleep(0.05)
 
         print("done")
 
