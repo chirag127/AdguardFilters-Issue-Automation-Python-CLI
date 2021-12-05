@@ -1,5 +1,3 @@
-from time import sleep
-from urllib.parse import urlparse
 import pyautogui
 
 
