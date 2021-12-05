@@ -31,7 +31,6 @@ def main():
     # selecte the url of the current webpage
     pyautogui.hotkey('alt', 'd')
 
-
     # copy the selected url to the clipboard
     pyautogui.hotkey('ctrl', 'c')
 
@@ -80,8 +79,6 @@ def main():
 
             pyautogui.click(393, 500)
 
-
-
         screenshot_body()
 
         pyautogui.hotkey('ctrl', 'a')
@@ -100,7 +97,6 @@ def main():
 
         pyautogui.hotkey('ctrl', 'v')
 
-
         # take focus out of the screenshot body
 
         pyautogui.click(x=100, y=500)
@@ -118,7 +114,7 @@ def main():
         pyautogui.hotkey('ctrl', 'w')
 
         sleep(0.01)
-        
+
         open_last_closed_tab()
 
         sleep(0.01)
@@ -128,9 +124,9 @@ def main():
         sleep(0.01)
 
         print("done")
-        
 
     print("loop completed")
+
 
 if __name__ == "__main__":
 
