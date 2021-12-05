@@ -47,8 +47,7 @@ def main():
     webbrowser.open(
         f"https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml&title={site_domain}")
 
-    # webbrowser.open(
-    #     f"https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml&title={site_domain}")
+    # webbrowser.open("https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml&title=" + site_domain)
 
     sleep(5)
 
@@ -99,7 +98,20 @@ def main():
 
         pyautogui.hotkey('ctrl', 'v')
 
-        sleep(0.05)
+        # take focus out of the screenshot body
+
+        pyautogui.click(x=100, y=500)
+
+        sleep(0.01)
+
+        pyautogui.press('end')
+
+        sleep(0.1)
+
+        # click on submit new issue
+        pyautogui.click(x=1240, y=745)
+
+        sleep(0.01)
 
         print("done")
 
