@@ -115,15 +115,10 @@ def main():
 
         sleep(0.01)
 
-        open_last_closed_tab()
-
-        sleep(0.01)
-
-        pyautogui.hotkey('ctrl', 'w')
-
-        sleep(0.01)
 
         print("done")
+
+    open_last_closed_tab()
 
     print("loop completed")
 
