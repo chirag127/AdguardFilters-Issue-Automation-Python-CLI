@@ -7,6 +7,7 @@ import clipboard
 import dproblem
 import keyboard
 import webbrowser
+import pyperclip
 
 page_down = 816
 
@@ -17,83 +18,99 @@ page_down = 816
 
 def main():
 
-    ss = pyautogui.screenshot(region=(0, 88, 1920, 932))
+    pyautogui.hotkey('ctrl', 'prtsc')
 
+    sleep(0.05)
+
+    pyautogui.click(x=500, y=500)
+
+    # wait sometime before I  keyup the shortcut keys
     sleep(1)
 
+    # selecte the url of the current webpage
     pyautogui.hotkey('alt', 'd')
 
-    copyselectedtext()
+
+    # copy the selected url to the clipboard
+    pyautogui.hotkey('ctrl', 'c')
 
     # get the url of the website by using the clipboard
-    url = clipboard.paste()
+    site_url = pyperclip.paste()
 
     # parse the url to get the domain name
-    domain = urlparse(url).netloc
+    site_domain = urlparse(site_url).netloc
 
     pyautogui.hotkey('ctrl', 'w')
 
-    # webbrowser.open(
-    #     f"https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml&title={domain}")
-
     webbrowser.open(
-        f"https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml&title={domain}")
+        f"https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml&title={site_domain}")
 
-    sleep(3)
+    # webbrowser.open(
+    #     f"https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml&title={site_domain}")
 
-    fill_product()
+    sleep(5)
 
-    move_down_one_page()
+    image_url = clipboard.paste()
 
-    dproblem.fill_problem_as_annoyance()
+    if "imgur" in image_url:
 
-    fill_browser_and_device()
+        fill_product()
 
-    click_url_box()
+        move_down_one_page()
 
-    pyautogui.hotkey('ctrl', 'v')
+        dproblem.fill_problem_as_annoyance()
 
-    sleep(0.1)
+        fill_browser_and_device()
 
-    fill_filter()
+        click_url_box()
 
-    move_down_one_page()
+        pyperclip.copy(site_url)
 
-    # define the fuction to click screenshot body
-    def screenshot_body():
+        pyautogui.hotkey('ctrl', 'v')
 
-        pyautogui.click(393, 500)
+        sleep(0.1)
 
+        fill_filter()
 
+        move_down_one_page()
 
-    screenshot_body()
+        # define the fuction to click screenshot body
+        def screenshot_body():
 
-    pyautogui.hotkey('ctrl', 'a')
-
-    pyautogui.typewrite(f"""<details><summary>Screenshots:</summary>
-
-
-
+            pyautogui.click(393, 500)
 
 
+
+        screenshot_body()
+
+        pyautogui.hotkey('ctrl', 'a')
+
+        pyperclip.copy(f"""<details><summary>Screenshots:</summary>
+
+
+
+
+[screenshot]({image_url})
 
 
 
 
 </details><br/>""")
 
+        pyautogui.hotkey('ctrl', 'v')
 
-    # take focus out of the screenshot body
 
-    pyautogui.click(x=100, y=500)
+        # take focus out of the screenshot body
 
-    sleep(0.01)
+        pyautogui.click(x=100, y=500)
 
-    pyautogui.press('end')
+        sleep(0.01)
 
-    open_last_closed_tab()
+        pyautogui.press('end')
 
-    close_tab()
+        open_last_closed_tab()
+
+        close_tab()
 
 
 if __name__ == "__main__":
