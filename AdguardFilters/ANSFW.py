@@ -3,7 +3,6 @@ from bproduct import fill_product_nsfw
 from ebrowser_device import fill_browser_and_device
 from furl import click_url_box
 from gfilter import fill_filter
-from jsubmit import click_on_submit_new_issue
 from time import sleep
 from urllib.parse import urlparse
 from zfunctions import *
@@ -15,7 +14,6 @@ import pyperclip
 
 page_down = 816
 
-# Create_new_issue_template = "bug_report.yml"
 Create_new_issue_template = "bug_report_NSFW.yml"
 Create_new_issue_Account = "chirag127/test"
 # Create_new_issue_Account = "AdguardTeam/AdguardFilters"
@@ -62,7 +60,7 @@ def main():
 
         move_down_one_page()
 
-        pyautogui.scroll(-36)
+        pyautogui.scroll(36)
 
         dproblem.fill_problem_as_annoyance()
 

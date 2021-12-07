@@ -7,8 +7,6 @@
 from time import sleep
 import pyautogui
 
-from AdguardTeam.AdguardFilters.ebrowser_device import select_browser
-
 # Physical: {X=349,Y=856};
 # Physical: {X=365,Y=907};
 
