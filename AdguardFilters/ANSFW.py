@@ -15,8 +15,8 @@ import pyperclip
 page_down = 816
 
 Create_new_issue_template = "bug_report_NSFW.yml"
-Create_new_issue_Account = "chirag127/test"
-# Create_new_issue_Account = "AdguardTeam/AdguardFilters"
+# Create_new_issue_Account = "chirag127/test"
+Create_new_issue_Account = "AdguardTeam/AdguardFilters"
 
 
 # create issue on the
@@ -119,6 +119,8 @@ def main():
         print("done")
 
     open_last_closed_tab()
+
+    pyautogui.hotkey('ctrl', 'w')
 
     print("loop completed")
 
