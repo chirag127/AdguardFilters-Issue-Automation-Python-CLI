@@ -7,26 +7,30 @@
 from time import sleep
 import pyautogui
 
+from AdguardTeam.AdguardFilters.ebrowser_device import select_browser
+
+# Physical: {X=349,Y=856};
+# Physical: {X=365,Y=907};
+
 # define a function to click the selections button
 
+click_product_selection_x = 320
+click_product_selection_y_normal = 886
+click_product_selection_y_nsfw = 856 
 
-def click_product_selection():
+def fill_product_normal():
 
-    pyautogui.click(x=320, y=886)
+    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_normal)
 
+    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_normal + 47)  
 
-# define a function to click the adguard browser extension
-def click_adguard_browser_extension():
-
-    pyautogui.click(x=320, y=933)
-
-# define a function to fill the selection of the product
+    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_normal ) 
 
 
-def fill_product():
+def fill_product_nsfw():
 
-    click_product_selection()
+    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_nsfw)
 
-    click_adguard_browser_extension()
+    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_nsfw + 47)  
 
-    click_product_selection()
+    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_nsfw )

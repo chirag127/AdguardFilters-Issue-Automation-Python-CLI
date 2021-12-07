@@ -1,4 +1,4 @@
-from bproduct import fill_product
+from bproduct import fill_product_normal
 from ebrowser_device import fill_browser_and_device
 from furl import click_url_box
 from gfilter import fill_filter
@@ -13,6 +13,11 @@ import webbrowser
 import pyperclip
 
 page_down = 816
+
+Create_new_issue_template = "bug_report.yml"
+Create_new_issue_template = "bug_report_NSFW.yml"
+Create_new_issue_Account = "chirag127/test"
+# Create_new_issue_Account = "AdguardTeam/AdguardFilters"
 
 
 # create issue on the
@@ -44,18 +49,16 @@ def main():
 
     pyautogui.hotkey('ctrl', 'w')
 
-    webbrowser.open(
-        f"https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml&title={site_domain}")
-
-    # webbrowser.open("https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml&title=" + site_domain)
+    webbrowser.open("https://github.com/" + Create_new_issue_Account + "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
 
     sleep(5)
 
     image_url = clipboard.paste()
+    
+    fill_product_normal()
 
     if "imgur" in image_url:
 
-        fill_product()
 
         move_down_one_page()
 
