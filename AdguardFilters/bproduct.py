@@ -17,25 +17,40 @@ click_product_selection_y_normal = 886
 click_product_selection_y_nsfw = 856
 
 
-def fill_product_normal():
-
-    pyautogui.click(x=click_product_selection_x,
-                    y=click_product_selection_y_normal)
-
-    pyautogui.click(x=click_product_selection_x,
-                    y=click_product_selection_y_normal + 47)
+def click_fill_product_button_normal():
 
     pyautogui.click(x=click_product_selection_x,
                     y=click_product_selection_y_normal)
 
 
-def fill_product_nsfw():
+def click_fill_product_button_nsfw():
 
     pyautogui.click(x=click_product_selection_x,
                     y=click_product_selection_y_nsfw)
 
-    pyautogui.click(x=click_product_selection_x,
-                    y=click_product_selection_y_nsfw + 47)
 
-    pyautogui.click(x=click_product_selection_x,
-                    y=click_product_selection_y_nsfw)
+def fill_product(Create_new_issue_template):
+
+    if Create_new_issue_template == "bug_report.yml":
+
+        click_fill_product_button_normal()
+
+        pyautogui.click(x=click_product_selection_x,
+                        y=click_product_selection_y_normal + 47)
+
+        click_fill_product_button_normal()
+
+        pyautogui.press('pagedown')
+
+    elif Create_new_issue_template == "bug_report_NSFW.yml":
+
+        click_fill_product_button_nsfw()
+
+        pyautogui.click(x=click_product_selection_x,
+                        y=click_product_selection_y_nsfw + 47)
+
+        click_fill_product_button_nsfw()
+
+        pyautogui.press('pagedown')
+
+        pyautogui.scroll(36)
