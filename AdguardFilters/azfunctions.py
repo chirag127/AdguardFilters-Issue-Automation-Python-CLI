@@ -12,6 +12,20 @@ import webbrowser
 import pyperclip
 
 
+def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, site_domain):
+
+    if "NSFW" in Create_new_issue_template:
+
+        webbrowser.register('edge', None, webbrowser.BackgroundBrowser(
+            "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
+
+        webbrowser.get('edge').open("https://github.com/" + Create_new_issue_Account +
+                                    "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
+
+    else:
+
+        webbrowser.open("https://github.com/" + Create_new_issue_Account +
+                        "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
 
 
 def create_issue(Create_new_issue_template, Create_new_issue_Account):
@@ -43,8 +57,8 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
 
     close_tab()
 
-    webbrowser.open("https://github.com/" + Create_new_issue_Account +
-                    "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
+    open_create_issue_page(Create_new_issue_template,
+                           Create_new_issue_Account, site_domain)
 
     sleep(3)
 
@@ -164,6 +178,7 @@ def move_down_one_page():
 def paste_text():
 
     pyautogui.hotkey('ctrl', 'v')
+
 
 def press_end():
 
