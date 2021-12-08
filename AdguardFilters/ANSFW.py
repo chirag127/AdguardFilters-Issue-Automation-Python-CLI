@@ -48,46 +48,62 @@ def main():
 
     pyautogui.hotkey('ctrl', 'w')
 
-    webbrowser.open("https://github.com/" + Create_new_issue_Account + "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
+    
+    webbrowser.register('edge', None, webbrowser.BackgroundBrowser("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
 
-    sleep(5)
+    # open the browser    
+    webbrowser.get('edge').open("https://github.com/" + Create_new_issue_Account + "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
 
-    image_url = clipboard.paste()
+    sleep(3)
 
-    if "imgur" in image_url:
 
-        fill_product_nsfw()
+    while True:
 
-        move_down_one_page()
+            image_url = clipboard.paste()
 
-        pyautogui.scroll(36)
+            if "imgur" not in image_url:
 
-        dproblem.fill_problem_as_annoyance()
+                sleep(1)
+                print("waiting for the image to be uploaded") 
 
-        fill_browser_and_device()
 
-        click_url_box()
+            else:
 
-        pyperclip.copy(site_url)
+                break  
 
-        pyautogui.hotkey('ctrl', 'v')
 
-        sleep(0.1)
+    fill_product_nsfw()
 
-        fill_filter()
+    move_down_one_page()
 
-        move_down_one_page()
+    pyautogui.scroll(36)
 
-        # define the fuction to click screenshot body
-        def screenshot_body():
+    dproblem.fill_problem_as_annoyance()
 
-            pyautogui.click(393, 500)
+    fill_browser_and_device()
 
-        screenshot_body()
+    click_url_box()
 
-        pyautogui.hotkey('ctrl', 'a')
+    pyperclip.copy(site_url)
 
-        pyperclip.copy(f"""<details><summary>Screenshots:</summary>
+    pyautogui.hotkey('ctrl', 'v')
+
+    sleep(0.1)
+
+    fill_filter()
+
+    move_down_one_page()
+
+    # define the fuction to click screenshot body
+    def screenshot_body():
+
+        pyautogui.click(393, 500)
+
+    screenshot_body()
+
+    pyautogui.hotkey('ctrl', 'a')
+
+    pyperclip.copy(f"""<details><summary>Screenshots:</summary>
 
 
 
@@ -99,24 +115,24 @@ def main():
 
 </details><br/>""")
 
-        pyautogui.hotkey('ctrl', 'v')
+    pyautogui.hotkey('ctrl', 'v')
 
-        # take focus out of the screenshot body
+    # take focus out of the screenshot body
 
-        pyautogui.click(x=100, y=500)
+    pyautogui.click(x=100, y=500)
 
-        sleep(0.01)
+    sleep(0.01)
 
-        pyautogui.press('end')
+    pyautogui.press('end')
 
-        sleep(0.1)
+    sleep(0.1)
 
-        # click on submit new issue
-        pyautogui.click(x=1240, y=745)
+    # click on submit new issue
+    pyautogui.click(x=1240, y=745)
 
-        sleep(0.01)
+    sleep(0.01)
 
-        print("done")
+    print("done")
 
     open_last_closed_tab()
 
