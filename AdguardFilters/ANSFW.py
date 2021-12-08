@@ -23,7 +23,7 @@ def main():
 
     pyautogui.hotkey('ctrl', 'prtsc')
 
-    sleep(0.5)
+    sleep(0.1)
 
     pyautogui.click(x=500, y=500)
 
