@@ -20,10 +20,6 @@ Create_new_issue_template = "bug_report.yml"
 Create_new_issue_Account = "AdguardTeam/AdguardFilters"
 
 
-# create issue on the
-#  https://github.com/AdguardTeam/AdguardFilters/issues/new?assignees=&template=bug_report.yml
-# https://github.com/chirag127/test/issues/new?assignees=&template=bug_report.yml
-
 def main():
 
     pyautogui.hotkey('ctrl', 'prtsc')
