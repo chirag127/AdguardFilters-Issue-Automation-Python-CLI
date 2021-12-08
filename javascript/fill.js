@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
-// @match        https://github.com/*/issues/new*template=*
+// @match        https://github.com/*/issues/new*template=*.yml*
 // @icon         https://www.google.com/s2/favicons?domain=github.com
 // @grant        none
 // ==/UserScript==
@@ -21,7 +21,7 @@
   }
   document.getElementById("issue_form_terms_i_agree_to_follow_this_condition").checked = true;
 
-  document.getElementById("issue_form_version").value = "4.0.64";
+  document.getElementById("issue_form_version").value = "Version 3.6.16";
 
 
 
