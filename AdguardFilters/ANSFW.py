@@ -19,12 +19,16 @@ Create_new_issue_Account = "AdguardTeam/AdguardFilters"
 
 
 def main():
-
+    
     pyautogui.hotkey('ctrl', 'prtsc')
 
     sleep(0.1)
 
-    pyautogui.click(x=500, y=500)
+    pyautogui.moveTo(x=500, y=500)
+
+    sleep(0.1)
+
+    pyautogui.click()
 
     # wait sometime before I  keyup the shortcut keys
     sleep(1)
