@@ -52,7 +52,6 @@ def main():
 
     sleep(4)
 
-
     fill_product_nsfw()
 
     move_down_one_page()
@@ -64,7 +63,7 @@ def main():
     fill_browser_and_device()
 
     click_url_box()
-    
+
     while True:
 
         image_url = pyperclip.paste()

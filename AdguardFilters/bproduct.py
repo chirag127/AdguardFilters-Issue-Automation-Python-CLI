@@ -14,21 +14,28 @@ import pyautogui
 
 click_product_selection_x = 320
 click_product_selection_y_normal = 886
-click_product_selection_y_nsfw = 856 
+click_product_selection_y_nsfw = 856
+
 
 def fill_product_normal():
 
-    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_normal)
+    pyautogui.click(x=click_product_selection_x,
+                    y=click_product_selection_y_normal)
 
-    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_normal + 47)  
+    pyautogui.click(x=click_product_selection_x,
+                    y=click_product_selection_y_normal + 47)
 
-    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_normal ) 
+    pyautogui.click(x=click_product_selection_x,
+                    y=click_product_selection_y_normal)
 
 
 def fill_product_nsfw():
 
-    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_nsfw)
+    pyautogui.click(x=click_product_selection_x,
+                    y=click_product_selection_y_nsfw)
 
-    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_nsfw + 47)  
+    pyautogui.click(x=click_product_selection_x,
+                    y=click_product_selection_y_nsfw + 47)
 
-    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_nsfw )
+    pyautogui.click(x=click_product_selection_x,
+                    y=click_product_selection_y_nsfw)

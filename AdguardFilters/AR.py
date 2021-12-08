@@ -6,7 +6,6 @@ from jsubmit import click_on_submit_new_issue
 from time import sleep
 from urllib.parse import urlparse
 from zfunctions import *
-import clipboard
 import dproblem
 import keyboard
 import webbrowser
@@ -62,12 +61,12 @@ def main():
 
     while True:
 
-        image_url = clipboard.paste()
+        image_url = pyperclip.paste()
 
         if "imgur" not in image_url:
 
             sleep(1)
-            
+
             print("waiting for the image to be uploaded")
 
         else:
