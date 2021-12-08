@@ -48,29 +48,27 @@ def main():
 
     pyautogui.hotkey('ctrl', 'w')
 
-    
-    webbrowser.register('edge', None, webbrowser.BackgroundBrowser("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
+    webbrowser.register('edge', None, webbrowser.BackgroundBrowser(
+        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
 
-    # open the browser    
-    webbrowser.get('edge').open("https://github.com/" + Create_new_issue_Account + "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
+    # open the browser
+    webbrowser.get('edge').open("https://github.com/" + Create_new_issue_Account +
+                                "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
 
     sleep(3)
 
-
     while True:
 
-            image_url = clipboard.paste()
+        image_url = clipboard.paste()
 
-            if "imgur" not in image_url:
+        if "imgur" not in image_url:
 
-                sleep(1)
-                print("waiting for the image to be uploaded") 
+            sleep(1)
+            print("waiting for the image to be uploaded")
 
+        else:
 
-            else:
-
-                break  
-
+            break
 
     fill_product_nsfw()
 
