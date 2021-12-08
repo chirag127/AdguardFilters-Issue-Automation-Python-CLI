@@ -2,7 +2,6 @@ from bproduct import fill_product_normal
 from ebrowser_device import fill_browser_and_device
 from furl import click_url_box
 from gfilter import fill_filter
-from jsubmit import click_on_submit_new_issue
 from time import sleep
 from urllib.parse import urlparse
 from zfunctions import *
@@ -25,7 +24,11 @@ def main():
 
     sleep(0.1)
 
-    pyautogui.click(x=500, y=500)
+    pyautogui.moveTo(x=500, y=500)
+
+    sleep(0.1)
+
+    pyautogui.click()
 
     # wait sometime before I  keyup the shortcut keys
     sleep(1)
@@ -47,7 +50,7 @@ def main():
     webbrowser.open("https://github.com/" + Create_new_issue_Account +
                     "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
 
-    sleep(4)
+    sleep(3)
 
     fill_product_normal()
 
