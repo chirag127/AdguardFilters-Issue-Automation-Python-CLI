@@ -6,7 +6,6 @@ from gfilter import fill_filter
 from time import sleep
 from urllib.parse import urlparse
 from zfunctions import *
-import clipboard
 import dproblem
 import keyboard
 import webbrowser
@@ -51,20 +50,8 @@ def main():
     webbrowser.get('edge').open("https://github.com/" + Create_new_issue_Account +
                                 "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
 
-    sleep(3)
+    sleep(4)
 
-    while True:
-
-        image_url = clipboard.paste()
-
-        if "imgur" not in image_url:
-
-            sleep(1)
-            print("waiting for the image to be uploaded")
-
-        else:
-
-            break
 
     fill_product_nsfw()
 
@@ -77,6 +64,20 @@ def main():
     fill_browser_and_device()
 
     click_url_box()
+    
+    while True:
+
+        image_url = pyperclip.paste()
+
+        if "imgur" not in image_url:
+
+            sleep(1)
+
+            print("waiting for the image to be uploaded")
+
+        else:
+
+            break
 
     pyperclip.copy(site_url)
 
