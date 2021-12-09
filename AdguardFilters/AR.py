@@ -5,8 +5,8 @@ page_down = 816
 
 Create_new_issue_template = "bug_report.yml"
 # Create_new_issue_template = "bug_report_NSFW.yml"
-# Create_new_issue_Account = "chirag127/test"
-Create_new_issue_Account = "AdguardTeam/AdguardFilters"
+Create_new_issue_Account = "chirag127/test"
+#Create_new_issue_Account = "AdguardTeam/AdguardFilters"
 
 
 if __name__ == "__main__":
@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
             create_issue("bug_report.yml", Create_new_issue_Account)
 
-        if keyboard.is_pressed('alt + x'):
+        elif keyboard.is_pressed('alt + x'):
 
             create_issue("bug_report_NSFW.yml", Create_new_issue_Account)
 
