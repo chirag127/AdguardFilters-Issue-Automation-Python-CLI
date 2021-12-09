@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     while True:
 
-        if keyboard.is_pressed('alt + z'):
+        if keyboard.is_pressed('ctrl + q'):
 
             create_issue("bug_report.yml", Create_new_issue_Account)
 
