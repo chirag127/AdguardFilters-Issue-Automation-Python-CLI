@@ -60,7 +60,7 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
     open_create_issue_page(Create_new_issue_template,
                            Create_new_issue_Account, site_domain)
 
-    sleep(3)
+    sleep(4)
 
     fill_product(Create_new_issue_template)
 
@@ -76,9 +76,9 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
 
         if "imgur" not in image_url:
 
-            sleep(1)
-
             print("waiting for the image to be uploaded")
+
+            sleep(1)
 
         else:
 
