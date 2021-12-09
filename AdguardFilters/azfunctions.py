@@ -30,6 +30,8 @@ def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, 
 
 def create_issue(Create_new_issue_template, Create_new_issue_Account):
 
+    sleep(0.5)
+
     pyautogui.hotkey('ctrl', 'prtsc')
 
     sleep(0.1)
