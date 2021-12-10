@@ -2,3 +2,5 @@ pip install autopep8
 pip install pyperclip
 pip install keyboard
 pip install pyautogui
+pip install auto-py-to-exe
+pip install wheel
