@@ -1,7 +1,7 @@
 import pyautogui
 from bproduct import fill_product
 from ebrowser_device import fill_browser_and_device
-from furl import click_url_box
+from furl import click_url_box,extract_domain
 from gfilter import fill_filter
 from time import sleep
 from urllib.parse import urlparse
@@ -10,6 +10,7 @@ import dproblem
 import keyboard
 import webbrowser
 import pyperclip
+
 
 
 def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, site_domain):
@@ -55,7 +56,7 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
     site_url = pyperclip.paste()
 
     # parse the url to get the domain name
-    site_domain = urlparse(site_url).netloc
+    site_domain = extract_domain(site_url)
 
     close_tab()
 
