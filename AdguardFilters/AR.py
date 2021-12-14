@@ -5,11 +5,14 @@ page_down = 816
 
 Create_new_issue_template = "bug_report.yml"
 # Create_new_issue_template = "bug_report_NSFW.yml"
-Create_new_issue_Account = "chirag127/test"
-#Create_new_issue_Account = "AdguardTeam/AdguardFilters"
+#Create_new_issue_Account = "chirag127/test"
+Create_new_issue_Account = "AdguardTeam/AdguardFilters"
 
 
 if __name__ == "__main__":
+
+    print("Press ctrl + q to make new issue for a Non-NSFW website")
+    print("Press alt + x to make new issue for a NSFW website")
 
     while True:
 
