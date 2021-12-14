@@ -106,13 +106,12 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
 
     pyautogui.hotkey('ctrl', 'a')
 
-    pyperclip.copy(f"""> Please tell me user filters if the issue is out of scope for Adguard filters.
-    
+    pyperclip.copy(f"""<details><summary>Screenshots:</summary>
 
-<details><summary>Screenshots:</summary>
 
 
 [screenshot]({image_url})
+
 
 
 </details><br/>""")
