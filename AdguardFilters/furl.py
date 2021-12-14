@@ -11,7 +11,7 @@ def extract_domain(url):
     """
     extract domain from url.
     """
-    domain = urlparse.urlparse(url).netloc
+    domain = urlparse(url).netloc
 
     if domain.startswith("www."):
 
