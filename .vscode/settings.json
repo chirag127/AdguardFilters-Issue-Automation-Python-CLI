@@ -4,7 +4,7 @@
     "**/*.pyc": true,
     "**/__pycache__": true,
   },
-  "python.pythonPath": "c:\\Users\\hp\\OneDrive\\Documents\\GitHub\\Make-issue-on-AdguardTeam-AdguardFilters\\env\\Scripts\\python.exe",
+  "python.pythonPath": "C:\\Users\\hp\\AppData\\Local\\Microsoft\\WindowsApps\\python3.9.exe",
   "code-runner.executorMap": {
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
