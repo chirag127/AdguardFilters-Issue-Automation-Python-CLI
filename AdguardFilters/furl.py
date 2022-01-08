@@ -7,6 +7,7 @@ def click_url_box():
 
     pyautogui.click(x=400, y=600)
 
+
 def extract_domain(url):
     """
     extract domain from url.

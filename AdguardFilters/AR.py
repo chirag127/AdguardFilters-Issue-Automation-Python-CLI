@@ -1,4 +1,5 @@
 from azfunctions import *
+import keyboard
 
 
 page_down = 816

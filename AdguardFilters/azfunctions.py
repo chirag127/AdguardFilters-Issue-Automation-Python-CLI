@@ -1,16 +1,13 @@
 import pyautogui
 from bproduct import fill_product
 from ebrowser_device import fill_browser_and_device
-from furl import click_url_box,extract_domain
+from furl import click_url_box, extract_domain
 from gfilter import fill_filter
 from time import sleep
-from urllib.parse import urlparse
 from azfunctions import *
 import dproblem
-import keyboard
 import webbrowser
 import pyperclip
-
 
 
 def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, site_domain):
