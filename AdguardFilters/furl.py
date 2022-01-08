@@ -18,21 +18,12 @@ def extract_domain(url):
 
         domain = domain[4:]
 
-    if domain.startswith("m."):
+    elif domain.startswith("m."):
 
         domain = domain[2:]
 
-    if domain.startswith("mobile."):
+    elif domain.startswith("mobile."):
 
         domain = domain[7:]
 
     return domain
-
-
-if __name__ == '__main__':
-
-    while True:
-
-        if keyboard.is_pressed('ctrl+shift+u'):
-
-            click_url_box()

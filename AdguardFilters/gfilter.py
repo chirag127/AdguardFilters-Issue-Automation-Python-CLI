@@ -5,7 +5,6 @@
 # Physical: {X=306,Y=845}
 
 import pyautogui
-from time import sleep
 
 
 # Physical: {X=408,Y=881}
@@ -46,8 +45,6 @@ def fill_filter():
     click_filter_selection_button()
 
     click_Adguard_Base_filter_box()
-
-    # press page down
 
     pyautogui.press('pagedown')
 

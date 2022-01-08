@@ -28,7 +28,8 @@ def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, 
 
 def create_issue(Create_new_issue_template, Create_new_issue_Account):
 
-    sleep(0.5)
+    # wait sometime before I  keyup the shortcut keys
+    sleep(1)
 
     pyautogui.hotkey('ctrl', 'prtsc')
 
@@ -39,9 +40,6 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
     sleep(0.1)
 
     pyautogui.click()
-
-    # wait sometime before I  keyup the shortcut keys
-    sleep(1)
 
     # selecte the url of the current webpage
     pyautogui.hotkey('alt', 'd')

@@ -1,6 +1,4 @@
 import pyautogui
-from time import sleep
-
 
 # Physical: {X=316,Y=430}
 # Physical: {X=322,Y=524}
@@ -32,20 +30,20 @@ def fill_browser_and_device():
 
     click_browser_selection_button()
 
-    sleep(0.001)
+    # sleep(0.001)
 
     select_browser()
 
-    sleep(0.001)
+    # sleep(0.001)
 
     click_browser_selection_button()
 
-    sleep(0.001)
+    # sleep(0.001)
 
     click_device_selection_button()
 
-    sleep(0.001)
+    # sleep(0.001)
 
     select_device()
 
-    sleep(0.001)
+    # sleep(0.001)
