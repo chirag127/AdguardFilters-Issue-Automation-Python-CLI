@@ -68,6 +68,7 @@ def main():
 if __name__ == "__main__":
 
     print("Press ctrl + q to make new issue for a Non-NSFW website")
+    
     print("Press alt + x to make new issue for a NSFW website")
 
     while True:
