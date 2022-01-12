@@ -1,5 +1,6 @@
 from azfunctions import *
 import keyboard
+import reporter
 
 
 page_down = 816
@@ -24,6 +25,10 @@ if __name__ == "__main__":
         elif keyboard.is_pressed('alt + x'):
 
             create_issue("bug_report_NSFW.yml", Create_new_issue_Account)
+
+        elif keyboard.is_pressed('alt + q'):
+
+            reporter.main() 
 
         else:
             sleep(0.1)
