@@ -48,7 +48,7 @@ def open_create_issue_page(url):
 
 def fill_product():
 
-    sleep(1)
+    sleep(0.5)
 
     press_enter()
 
@@ -76,14 +76,14 @@ def fill_Problem():
 
 def fill_url():
 
-    sleep(3)
+    sleep(2.5)
 
     pyautogui.press('enter')
 
 
 def fill_filter():
 
-    sleep(1)
+    sleep(0.5)
 
     pyautogui.press('enter')
 
@@ -100,7 +100,7 @@ def fill_screenshot():
 
     pyautogui.hotkey('ctrl', 'v')
 
-    sleep(3)
+    sleep(2.5)
 
     pyautogui.click(x=1389, y=702)
 
@@ -111,22 +111,17 @@ def fill_screenshot():
 
 def fill_comment():
 
-    sleep(1)
+    sleep(0.5)
 
     pyautogui.press('enter')
 
 
 def fill_check():
 
-    sleep(1)
+    sleep(0.5)
 
     press_end()
 
-    sleep(2)
-
-    # Physical: {X=802,Y=453}
-
-    pyautogui.click(x=802, y=453)
 
 def extract_domain(url):
     """
