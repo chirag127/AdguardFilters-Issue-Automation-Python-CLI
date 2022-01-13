@@ -1,13 +1,15 @@
+import webbrowser
+from time import sleep
+
 import pyautogui
+import pyperclip
+
+import dproblem
+from azfunctions import *
 from bproduct import fill_product
 from ebrowser_device import fill_browser_and_device
 from furl import click_url_box, extract_domain
 from gfilter import fill_filter
-from time import sleep
-from azfunctions import *
-import dproblem
-import webbrowser
-import pyperclip
 
 
 def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, site_domain):
