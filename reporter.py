@@ -6,10 +6,10 @@ import pyperclip
 
 def press_enter():
 
-    pyautogui.press('enter')
+    pyautogui.press("enter")
+
 
 # define a function that will click the next button if  the image in the file named "AdguardFilters\images\adguard_next.png" is present on the screen
-
 
 
 def if_next_button_is_present():
@@ -18,27 +18,33 @@ def if_next_button_is_present():
     # Physical: {X=1116,Y=606}
     # Physical: {X=921,Y=500}
     # Physical: {X=944,Y=1009}
-
-    try:
-        while True:
-            if pyautogui.locateOnScreen('adguard_next.png',region=(850,500, 300, 500), confidence = 0.9) != None:
+    while True:
+        try:    
+        
+            if (
+                pyautogui.locateOnScreen("adguard_next.png", region=(850, 500, 300, 500), confidence=0.9
+                )
+                != None
+            ):
                 print("next button is present")
                 break
             else:
                 print("next button is not present")
                 sleep(1)
-    except Exception as e:
-        print(e)
+        except Exception as e:
+            
+            sleep(10)
 
     press_enter()
 
 
 def click_add_url_button_if_it_is_present():
 
+    # adguard_next.png
     while True:
 
         try:
-            image_coords = pyautogui.locateOnScreen('adguard_add_url.png')
+            image_coords = pyautogui.locateOnScreen("adguard_add_url.png")
             image_coords = pyautogui.center(image_coords)
             pyautogui.click(image_coords)
             print("add url button is present")
@@ -68,7 +74,7 @@ def open_create_issue_page(url):
     url = url.replace("?", "%3F")
     url = url.replace("@", "%40")
     url = url.replace("[", "%5B")
-    url = url.replace("\"", "%22")
+    url = url.replace('"', "%22")
     url = url.replace("\\", "%5C")
     url = url.replace("]", "%5D")
     url = url.replace("^", "%5E")
@@ -151,7 +157,7 @@ def fill_screenshot():
 
     sleep_for_a_01_s()
 
-    pyautogui.hotkey('ctrl', 'v')
+    pyautogui.hotkey("ctrl", "v")
 
     sleep(1)
 
@@ -168,7 +174,7 @@ def fill_comment():
 
     sleep(0.1)
 
-    pyautogui.press('enter')
+    press_enter()
 
 
 def fill_check():
@@ -182,42 +188,62 @@ def fill_check():
 # open last closed tab
 def open_last_closed_tab():
 
-    pyautogui.hotkey('ctrl', 'shift', 't')
+    pyautogui.hotkey("ctrl", "shift", "t")
+
+    print("Opened last closed tab")
 
 
 # define a function that will close tab
 def close_tab():
 
-    pyautogui.hotkey('ctrl', 'w')
+    pyautogui.hotkey("ctrl", "w")
+
+    print("Closed tab")
+
 
 # define a function that will go to next tab using pyautogui.hotkey('ctrl', 'tab')
 
 
 def go_to_next_tab():
 
-    pyautogui.hotkey('ctrl', 'tab')
+    pyautogui.hotkey("ctrl", "tab")
+
+    print("Moved to next tab")
+
 
 
 # define a function that will copy the url from the url bar using the pyautogui library by pressing the "ctrl" key + "c"
 def copyselectedtext():
 
-    pyautogui.hotkey('ctrl', 'c')
+    pyautogui.hotkey("ctrl", "c")
+
+    print("Copied text")
+
 
 
 # define a function that will move down one page
 def move_down_one_page():
 
-    pyautogui.hotkey('pagedown')
+    pyautogui.hotkey("pagedown")
+
+    print("Moved down one page")
 
 
 def paste_text():
 
-    pyautogui.hotkey('ctrl', 'v')
+
+    pyautogui.hotkey("ctrl", "v")
+
+    print("Pasted text")
 
 
 def press_end():
 
-    pyautogui.press('end')
+    pyautogui.press("end")
+
+    print("Pressed end")
+
+
 
 
 def main():
@@ -225,7 +251,9 @@ def main():
     # wait sometime before I  keyup the shortcut keys
     sleep(1)
 
-    pyautogui.hotkey('ctrl', 'prtsc')
+    pyautogui.hotkey("ctrl", "prtsc")
+
+
 
     sleep(0.1)
 
@@ -236,10 +264,9 @@ def main():
     pyautogui.click()
 
     # select the url of the current webpage
-    pyautogui.hotkey('alt', 'd')
+    pyautogui.hotkey("alt", "d")
 
-    # copy the selected url to the clipboard
-    pyautogui.hotkey('ctrl', 'c')
+    copyselectedtext()
 
     # get the url of the website by using the clipboard
     site_url = pyperclip.paste()
@@ -293,7 +320,7 @@ if __name__ == "__main__":
 
         import keyboard
 
-        if keyboard.is_pressed('ctrl + q'):
+        if keyboard.is_pressed("ctrl + q"):
 
             main()
 
