@@ -4,7 +4,7 @@
     "**/*.pyc": true,
     "**/__pycache__": true,
   },
-  "python.pythonPath": "C:\\Users\\hp\\AppData\\Local\\Microsoft\\WindowsApps\\python3.10.exe",
+  "python.pythonPath": "env\\Scripts\\python.exe",
   "code-runner.executorMap": {
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
