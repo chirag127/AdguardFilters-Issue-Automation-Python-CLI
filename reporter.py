@@ -1,7 +1,11 @@
+
 import webbrowser
 from time import sleep
+
 import pyautogui
 import pyperclip
+
+import os
 
 
 def press_enter():
@@ -19,20 +23,20 @@ def if_next_button_is_present():
     # Physical: {X=921,Y=500}
     # Physical: {X=944,Y=1009}
     while True:
-        try:    
-        
+        try:
+            adguard_next_button_png_path = "adguard_add_url.png"
+            # adguard_next_button_png_path = os.path.join(os.path.dirname(__file__), adguard_next_button_png_path)
+
             if (
-                pyautogui.locateOnScreen("adguard_next.png", region=(850, 500, 300, 500), confidence=0.9
-                )
-                != None
-            ):
+                pyautogui.locateOnScreen(adguard_next_button_png_path,
+                                         region=(850, 500, 300, 500), confidence=0.8)) != None:
                 print("next button is present")
                 break
             else:
                 print("next button is not present")
                 sleep(1)
         except Exception as e:
-            
+
             sleep(10)
 
     press_enter()
@@ -44,7 +48,12 @@ def click_add_url_button_if_it_is_present():
     while True:
 
         try:
-            image_coords = pyautogui.locateOnScreen("adguard_add_url.png")
+            adguard_add_url_button_png_path = "adguard_add_url.png"
+
+            # adguard_add_url_button_png_path = os.path.join(os.path.dirname(__file__), adguard_add_url_button_png_path)
+
+            image_coords = pyautogui.locateOnScreen(adguard_add_url_button_png_path,
+                                                    region=(1330, 680, 160, 80))
             image_coords = pyautogui.center(image_coords)
             pyautogui.click(image_coords)
             print("add url button is present")
@@ -211,14 +220,12 @@ def go_to_next_tab():
     print("Moved to next tab")
 
 
-
 # define a function that will copy the url from the url bar using the pyautogui library by pressing the "ctrl" key + "c"
 def copyselectedtext():
 
     pyautogui.hotkey("ctrl", "c")
 
     print("Copied text")
-
 
 
 # define a function that will move down one page
@@ -230,7 +237,6 @@ def move_down_one_page():
 
 
 def paste_text():
-
 
     pyautogui.hotkey("ctrl", "v")
 
@@ -244,16 +250,12 @@ def press_end():
     print("Pressed end")
 
 
-
-
 def main():
 
     # wait sometime before I  keyup the shortcut keys
     sleep(1)
 
     pyautogui.hotkey("ctrl", "prtsc")
-
-
 
     sleep(0.1)
 
@@ -320,7 +322,7 @@ if __name__ == "__main__":
 
         import keyboard
 
-        if keyboard.is_pressed("ctrl + q"):
+        if keyboard.is_pressed("alt + q"):
 
             main()
 
