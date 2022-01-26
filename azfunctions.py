@@ -1,3 +1,7 @@
+from email.mime import image
+import imp
+import os
+import sys
 import webbrowser
 from time import sleep
 
@@ -70,19 +74,9 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
 
     click_url_box()
 
-    while True:
+    check_if_image_uploaded()
 
-        image_url = pyperclip.paste()
-
-        if "imgur" not in image_url:
-
-            print("waiting for the image to be uploaded")
-
-            sleep(1)
-
-        else:
-
-            break
+    image_url = pyperclip.paste()
 
     pyperclip.copy(site_url)
 
@@ -140,44 +134,87 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
 
     print("loop completed")
 
+def check_if_image_uploaded():
+    while True:
+        image_url = pyperclip.paste()
+
+        if "imgur" not in image_url:
+            print("waiting for the image to be uploaded")
+
+            sleep(1)
+
+        else:
+            break
+
 
 # define a function that will open the last closed tab
 # open last closed tab
 def open_last_closed_tab():
 
-    pyautogui.hotkey('ctrl', 'shift', 't')
+    pyautogui.hotkey("ctrl", "shift", "t")
+
+    print("Opened last closed tab")
 
 
 # define a function that will close tab
 def close_tab():
 
-    pyautogui.hotkey('ctrl', 'w')
+    pyautogui.hotkey("ctrl", "w")
+
+    print("Closed tab")
+
 
 # define a function that will go to next tab using pyautogui.hotkey('ctrl', 'tab')
 
 
 def go_to_next_tab():
 
-    pyautogui.hotkey('ctrl', 'tab')
+    pyautogui.hotkey("ctrl", "tab")
+
+    print("Moved to next tab")
 
 
 # define a function that will copy the url from the url bar using the pyautogui library by pressing the "ctrl" key + "c"
 def copyselectedtext():
 
-    pyautogui.hotkey('ctrl', 'c')
+    pyautogui.hotkey("ctrl", "c")
+
+    print("Copied text")
 
 
 # define a function that will move down one page
 def move_down_one_page():
 
-    pyautogui.hotkey('pagedown')
+    pyautogui.hotkey("pagedown")
+
+    print("Moved down one page")
 
 
 def paste_text():
 
-    pyautogui.hotkey('ctrl', 'v')
+    pyautogui.hotkey("ctrl", "v")
+
+    print("Pasted text")
 
 
 def press_end():
 
-    pyautogui.press('end')
+    pyautogui.press("end")
+
+    print("Pressed end")
+
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+
+def press_enter():
+
+    pyautogui.press("enter")
+
+    print("enter pressed")
