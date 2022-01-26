@@ -193,10 +193,6 @@ def main():
 
     sleep(0.1)
 
-    pyautogui.moveTo(x=500, y=500)
-
-    sleep(0.1)
-
     pyautogui.click()
 
     # select the url of the current webpage
