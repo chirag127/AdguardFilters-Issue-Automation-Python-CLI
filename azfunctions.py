@@ -1,5 +1,3 @@
-from email.mime import image
-import imp
 import os
 import sys
 import webbrowser
