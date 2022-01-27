@@ -1,6 +1,6 @@
 from azfunctions import *
 import keyboard
-import reporter
+import RE
 
 
 page_down = 816
@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
         elif keyboard.is_pressed("alt + q"):
 
-            reporter.main()
+            RE.main()
 
         else:
             sleep(0.1)

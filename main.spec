@@ -11,10 +11,7 @@ for d in a.datas:
         a.datas.remove(d)
         break
 
-a.datas += [('adguard_add_url.png',r'C:\Users\hp\OneDrive\Documents\GitHub\Make-issue-on-AdguardTeam-AdguardFilters\adguard_add_url.png', 'Data')]
-
 a.datas += [('adguard_next.png',r'C:\Users\hp\OneDrive\Documents\GitHub\Make-issue-on-AdguardTeam-AdguardFilters\adguard_next.png', 'Data')]
-
 
 pyz = PYZ(a.pure)
 exe = EXE(pyz,

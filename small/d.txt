@@ -1,0 +1,29 @@
+
+def click_add_url_button_if_it_is_present():
+
+    # adguard_next.png
+    while True:
+
+        try:
+            adguard_add_url_button_png_path = "adguard_add_url.png"
+
+            adguard_add_url_button_png_path = resource_path(
+                adguard_add_url_button_png_path
+            )
+
+            # adguard_add_url_button_png_path = os.path.join(os.path.dirname(__file__), adguard_add_url_button_png_path)
+
+            # import cv2
+
+            # adguard_add_url_button_png_path = cv2.imread(adguard_add_url_button_png_path)
+
+            image_coords = pyautogui.locateOnScreen(
+                adguard_add_url_button_png_path, region=(1330, 680, 160, 80)
+            )
+            image_coords = pyautogui.center(image_coords)
+            pyautogui.click(image_coords)
+            print("add url button is present")
+            break
+        except:
+            print("add url button is not present")
+            sleep(1)
