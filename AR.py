@@ -1,4 +1,4 @@
-from azfunctions import *
+from f import *
 import keyboard
 import RE
 

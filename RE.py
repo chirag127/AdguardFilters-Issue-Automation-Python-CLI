@@ -4,7 +4,7 @@ from time import sleep
 import pyautogui
 import pyperclip
 
-from azfunctions import *
+from f import *
 
 # define a function that will click the next button if  the image in the file named "AdguardFilters\images\adguard_next.png" is present on the screen
 
@@ -72,12 +72,10 @@ def open_create_issue_page(url, n):
 
     else:
 
-        webbrowser.register("edge", None, webbrowser.BackgroundBrowser(
-        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
-
-        webbrowser.get("edge").open(issue_url)
+        open_url_in_edge(issue_url)
 
     sleep(3)
+
 
 
 def fill_product():
