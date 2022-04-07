@@ -17,19 +17,14 @@ def if_next_button_is_present():
 
         adguard_next_button_png = resource_path(adguard_next_button_png)
 
-        if (
-            pyautogui.locateOnScreen(
-                adguard_next_button_png, region=(850, 500, 300, 500), confidence=0.8
-            )
-            != None
-        ):
-            print("next button is present")
-            break
-        else:
+        if pyautogui.locateOnScreen(adguard_next_button_png, region=(850, 500, 300, 500), confidence=0.8) is None:
             print("next button is not present")
             sleep(1)
             i += 1
 
+        else:
+            print("next button is present")
+            break
     press_enter()
 
 
@@ -77,17 +72,22 @@ def open_create_issue_page(url, n):
     sleep(3)
 
 
-
 def fill_product():
 
     if_next_button_is_present()
 
 
-def fill_Problem():
+def fill_Problem(a):
 
     pyautogui.click(x=738, y=440)
 
-    pyautogui.click(x=800, y=475)
+    if a:
+
+        pyautogui.click(x=800, y=475)
+
+    else:
+
+        pyautogui.click(x=800, y=650)
 
     pyautogui.click(x=523, y=619)
 
@@ -135,7 +135,7 @@ def fill_check():
     press_end()
 
 
-def main(type):
+def main(type, problem):
 
     # wait sometime before I  keyup the shortcut keys
     sleep(1)
@@ -170,13 +170,13 @@ def main(type):
 
     close_tab()
 
-    open_create_issue_page(site_url,type)
+    open_create_issue_page(site_url, type)
 
     send_to_clipboard(win32clipboard.CF_DIB, data)
 
     fill_product()
 
-    fill_Problem()
+    fill_Problem(problem)
 
     fill_url()
 
@@ -195,7 +195,9 @@ def main(type):
 
 if __name__ == "__main__":
 
-    print("Press ctrl + q to make new issue for a Non-NSFW website")
+    print("Press ctrl + q to make new issue for annoyance on a Non-NSFW website")
+
+    print("Press alt + q to make new issue for advertisement on Non-NSFW  website")
 
     print("Press alt + x to make new issue for a NSFW website")
 
@@ -205,11 +207,15 @@ if __name__ == "__main__":
 
         if keyboard.is_pressed("ctrl + q"):
 
-            main(True)
-        
+            main(True, False)
+
+        elif keyboard.is_pressed("alt + q"):
+
+            main(True, True)
+
         elif keyboard.is_pressed("alt + x"):
-                
-            main(False)
+
+            main(False, False)
 
         else:
 

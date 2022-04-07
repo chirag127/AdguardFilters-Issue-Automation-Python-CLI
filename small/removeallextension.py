@@ -45,6 +45,5 @@ if __name__ == "__main__":
 
         if keyboard.is_pressed('ctrl + q'):
 
-            for i in range(1, 5):
-
+            for _ in range(1, 5):
                 main()
