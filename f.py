@@ -26,8 +26,7 @@ def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, 
 
     else:
 
-        webbrowser.open("https://github.com/" + Create_new_issue_Account +
-                        "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
+        webbrowser.open(((((f"https://github.com/{Create_new_issue_Account}" + "/issues/new?template=") + Create_new_issue_template) + "&title=") + site_domain))
 
 
 def create_issue(Create_new_issue_template, Create_new_issue_Account):
@@ -147,13 +146,11 @@ def check_if_image_uploaded():
     while True:
         image_url = pyperclip.paste()
 
-        if "imgur" not in image_url:
-            print("waiting for the image to be uploaded")
-
-            sleep(1)
-
-        else:
+        if "imgur" in image_url:
             break
+        print("waiting for the image to be uploaded")
+
+        sleep(1)
 
 
 # define a function that will open the last closed tab

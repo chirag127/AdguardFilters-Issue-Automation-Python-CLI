@@ -1,7 +1,7 @@
 # -*- mode: python -*-
 
-a = Analysis(['RE.py'],
-         pathex=[r'C:\Users\hp\OneDrive\Documents\GitHub\Make-issue-on-AdguardTeam-AdguardFilters\RE.py'],
+a = Analysis(['aRE.py'],
+         pathex=[r'C:\Users\hp\OneDrive\Documents\GitHub\Make-issue-on-AdguardTeam-AdguardFilters\aRE.py'],
          hiddenimports=[],
          hookspath=None,
          runtime_hooks=None)
