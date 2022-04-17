@@ -5,7 +5,7 @@ import keyboard
 
 # Physical: {X=374,Y=611}
 # Physical: {X=1213,Y=747}
-# auto comment same thing on many tabs 
+# auto comment same thing on many tabs
 
 
 def main():
@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
         if keyboard.is_pressed('ctrl + v'):
 
-            for i in range(10):
+            for _ in range(10):
                 main()
                 sleep(1)
         else:

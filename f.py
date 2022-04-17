@@ -26,7 +26,8 @@ def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, 
 
     else:
 
-        webbrowser.open(((((f"https://github.com/{Create_new_issue_Account}" + "/issues/new?template=") + Create_new_issue_template) + "&title=") + site_domain))
+        webbrowser.open(((((f"https://github.com/{Create_new_issue_Account}" +
+                        "/issues/new?template=") + Create_new_issue_template) + "&title=") + site_domain))
 
 
 def create_issue(Create_new_issue_template, Create_new_issue_Account):
@@ -100,11 +101,13 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
 
     print("loop completed")
 
+
 def oandc():
-    
+
     open_last_closed_tab()
 
     close_tab()
+
 
 def ss_url_domain_closetab():
     take_sharex_ss()
@@ -112,7 +115,8 @@ def ss_url_domain_closetab():
     site_url, site_domain = return_url_and_domain()
 
     close_tab()
-    return site_url,site_domain
+    return site_url, site_domain
+
 
 def return_url_and_domain():
     copy_url_from_url_bar()
@@ -122,7 +126,8 @@ def return_url_and_domain():
 
     # parse the url to get the domain name
     site_domain = extract_domain(site_url)
-    return site_url,site_domain
+    return site_url, site_domain
+
 
 def copy_url_from_url_bar():
     # selecte the url of the current webpage
@@ -130,6 +135,7 @@ def copy_url_from_url_bar():
 
     # copy the selected url to the clipboard
     pyautogui.hotkey('ctrl', 'c')
+
 
 def take_sharex_ss():
 
@@ -141,6 +147,7 @@ def take_sharex_ss():
     sleep(0.1)
 
     pyautogui.click()
+
 
 def check_if_image_uploaded():
     while True:
@@ -225,14 +232,15 @@ def press_enter():
 
     print("enter pressed")
 
+
 def open_url_in_edge(issue_url):
     webbrowser.register("edge", None, webbrowser.BackgroundBrowser(
         "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
 
     webbrowser.get("edge").open(issue_url)
 
+
 def select_all():
     pyautogui.hotkey("ctrl", "a")
 
     print("Selected all")
-    

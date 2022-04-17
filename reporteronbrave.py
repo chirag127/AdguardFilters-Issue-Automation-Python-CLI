@@ -2,9 +2,9 @@ from f import *
 import keyboard
 import random
 
+
 def main():
 
-    
     site_url, site_domain = ss_url_domain_closetab()
 
     url = "https://community.brave.com/c/support-and-troubleshooting/ad-blocking/78"
@@ -16,15 +16,13 @@ def main():
     while True:
         brave_new_topic_button = pyautogui.locateOnScreen('brave_new_topic_button.png', confidence=0.8)
 
-
-        if brave_new_topic_button is not None:  
+        if brave_new_topic_button is not None:
             brave_new_topic_button = pyautogui.center(brave_new_topic_button)
 
             pyautogui.click(brave_new_topic_button)
             break
-        
-        else:
 
+        else:
 
             sleep(1)
 
@@ -55,7 +53,7 @@ def main():
 
 """
 
-    pyautogui.click(200,800)
+    pyautogui.click(200, 800)
 
     pyperclip.copy(content)
 
@@ -69,18 +67,14 @@ def main():
 
     oandc()
 
+
 if __name__ == "__main__":
 
     while True:
-        
+
         if keyboard.is_pressed("alt + q"):
             main()
 
         else:
 
             sleep(0.1)
-
-
-        
-
-
