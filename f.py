@@ -2,120 +2,31 @@ import os
 import sys
 import webbrowser
 from time import sleep
+from urllib.parse import urlparse
 
 import pyautogui
 import pyperclip
 
-import dproblem
-from f import *
-from bproduct import fill_product
-from ebrowser_device import fill_browser_and_device
-from furl import click_url_box, extract_domain
-from gfilter import fill_filter
 
+def extract_domain(url):
+    """
+    extract domain from url.
+    """
+    domain = urlparse(url).netloc
 
-def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, site_domain):
+    if domain.startswith("www."):
 
-    if "NSFW" in Create_new_issue_template:
+        domain = domain[4:]
 
-        webbrowser.register('edge', None, webbrowser.BackgroundBrowser(
-            "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
+    elif domain.startswith("m."):
 
-        webbrowser.get('edge').open("https://github.com/" + Create_new_issue_Account +
-                                    "/issues/new?template=" + Create_new_issue_template + "&title=" + site_domain)
+        domain = domain[2:]
 
-    else:
+    elif domain.startswith("mobile."):
 
-        webbrowser.open(((((f"https://github.com/{Create_new_issue_Account}" +
-                        "/issues/new?template=") + Create_new_issue_template) + "&title=") + site_domain))
+        domain = domain[7:]
 
-
-def create_issue(Create_new_issue_template, Create_new_issue_Account):
-
-    site_url, site_domain = ss_url_domain_closetab()
-
-    open_create_issue_page(Create_new_issue_template,
-                           Create_new_issue_Account, site_domain)
-
-    sleep(4)
-
-    fill_product(Create_new_issue_template)
-
-    dproblem.fill_problem_as_annoyance()
-
-    fill_browser_and_device()
-
-    click_url_box()
-
-    check_if_image_uploaded()
-
-    image_url = pyperclip.paste()
-
-    pyperclip.copy(site_url)
-
-    paste_text()
-
-    sleep(0.1)
-
-    fill_filter()
-
-    move_down_one_page()
-
-    # define the fuction to click screenshot body
-    def screenshot_body():
-
-        pyautogui.click(393, 500)
-
-    screenshot_body()
-
-    pyautogui.hotkey('ctrl', 'a')
-
-    pyperclip.copy(f"""<details><summary>Screenshots:</summary>
-
-
-
-[screenshot]({image_url})
-
-
-
-</details><br/>""")
-
-    paste_text()
-
-    # take focus out of the screenshot body
-
-    pyautogui.click(x=100, y=500)
-
-    sleep(0.01)
-
-    press_end()
-
-    sleep(0.1)
-
-    # click on submit new issue
-    pyautogui.click(x=1240, y=745)
-
-    print("done")
-
-    oandc()
-
-    print("loop completed")
-
-
-def oandc():
-
-    open_last_closed_tab()
-
-    close_tab()
-
-
-def ss_url_domain_closetab():
-    take_sharex_ss()
-
-    site_url, site_domain = return_url_and_domain()
-
-    close_tab()
-    return site_url, site_domain
+    return domain
 
 
 def return_url_and_domain():
@@ -210,6 +121,15 @@ def paste_text():
     print("Pasted text")
 
 
+def ss_url_domain_closetab():
+    take_sharex_ss()
+
+    site_url, site_domain = return_url_and_domain()
+
+    close_tab()
+    return site_url, site_domain
+
+
 def press_end():
 
     pyautogui.press("end")
@@ -244,3 +164,8 @@ def select_all():
     pyautogui.hotkey("ctrl", "a")
 
     print("Selected all")
+
+
+def open_last_closed_tab_and_close_tab():
+    open_last_closed_tab()
+    close_tab()

@@ -65,7 +65,9 @@ def main():
 
     pyautogui.click(pyautogui.locateCenterOnScreen('create_topic.png', confidence=0.8))
 
-    oandc()
+    open_last_closed_tab()
+
+    close_tab()
 
 
 if __name__ == "__main__":
