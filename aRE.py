@@ -135,7 +135,7 @@ def fill_check():
     press_end()
 
 
-def main(type, problem):
+def mi_by_ag_re(type=True, problem = False):
 
     # wait sometime before I  keyup the shortcut keys
     sleep(1)
@@ -207,15 +207,15 @@ if __name__ == "__main__":
 
         if keyboard.is_pressed("ctrl + q"):
 
-            main(True, False)
+            mi_by_ag_re()
 
         elif keyboard.is_pressed("alt + q"):
 
-            main(True, True)
+            mi_by_ag_re(True, True)
 
         elif keyboard.is_pressed("alt + x"):
 
-            main(False, False)
+            mi_by_ag_re(False, False)
 
         else:
 

@@ -70,6 +70,12 @@ def check_if_image_uploaded():
 
         sleep(1)
 
+def check_if_image_uploaded_and_return_url():
+    
+    check_if_image_uploaded()
+
+    return pyperclip.paste()
+
 
 # define a function that will open the last closed tab
 # open last closed tab

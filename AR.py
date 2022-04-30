@@ -1,5 +1,7 @@
 from f import *
 import keyboard
+from easylistmain import mi_to_send_mail_to_el, always_mi_to_mel
+from aRE import mi_by_ag_re
 
 click_product_selection_x = 320
 click_product_selection_y_normal = 886
@@ -198,14 +200,14 @@ def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, 
         webbrowser.open(url)
 
 
-def create_issue(Create_new_issue_template, Create_new_issue_Account):
+def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     site_url, site_domain = ss_url_domain_closetab()
 
     open_create_issue_page(Create_new_issue_template,
                            Create_new_issue_Account, site_domain)
 
-    sleep(4)
+    sleep(3)
 
     fill_product(Create_new_issue_template)
 
@@ -215,9 +217,9 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
 
     click_url_box()
 
-    check_if_image_uploaded()
+    image_url = check_if_image_uploaded_and_return_url()
 
-    image_url = pyperclip.paste()
+    always_mi_to_mel(site_url, site_domain, image_url)
 
     pyperclip.copy(site_url)
 
@@ -272,9 +274,9 @@ def create_issue(Create_new_issue_template, Create_new_issue_Account):
     print("loop completed")
 
 
+
 page_down = 816
 
-Create_new_issue_template = "bug_report.yml"
 Create_new_issue_Account = "AdguardTeam/AdguardFilters"
 
 
@@ -287,11 +289,19 @@ if __name__ == "__main__":
 
         if keyboard.is_pressed("ctrl + q"):
 
-            create_issue("bug_report.yml", Create_new_issue_Account)
+            create_issue_on_gh_ag("bug_report.yml", Create_new_issue_Account)
 
         elif keyboard.is_pressed("alt + x"):
 
-            create_issue("bug_report_NSFW.yml", Create_new_issue_Account)
+            create_issue_on_gh_ag("bug_report_NSFW.yml", Create_new_issue_Account)
+
+        elif keyboard.is_pressed("alt + r"):
+
+            mi_by_ag_re()
+
+        elif keyboard.is_pressed("alt + m"):
+
+            mi_to_send_mail_to_el()
 
         else:
             sleep(0.1)
