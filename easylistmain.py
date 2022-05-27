@@ -4,6 +4,7 @@ import ssl
 from f import *
 import keyboard
 
+
 def send_mail(message):
 
     sender_email = "yttube35@gmail.com"
@@ -46,12 +47,11 @@ def always_mi_to_mel(site_url, site_domain, image_url):
     Thanks,
     """
 
-    message = 'Subject: {}\n\n{}'.format(subject, message)
+    message = "Subject: {}\n\n{}".format(subject, message)
 
     print("message: ", message)
 
     send_mail(message)
-
 
 
 def mi_to_send_mail_to_el():
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     while True:
 
-        if keyboard.is_pressed('ctrl + q'):
+        if keyboard.is_pressed("ctrl + q"):
 
             mi_to_send_mail_to_el()
 

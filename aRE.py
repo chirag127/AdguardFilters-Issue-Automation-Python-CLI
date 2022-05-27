@@ -17,7 +17,12 @@ def if_next_button_is_present():
 
         adguard_next_button_png = resource_path(adguard_next_button_png)
 
-        if pyautogui.locateOnScreen(adguard_next_button_png, region=(850, 500, 300, 500), confidence=0.8) is None:
+        if (
+            pyautogui.locateOnScreen(
+                adguard_next_button_png, region=(850, 500, 300, 500), confidence=0.8
+            )
+            is None
+        ):
             print("next button is not present")
             sleep(1)
             i += 1
@@ -135,7 +140,7 @@ def fill_check():
     press_end()
 
 
-def mi_by_ag_re(type=True, problem = False):
+def mi_by_ag_re(type=True, problem=False):
 
     # wait sometime before I  keyup the shortcut keys
     sleep(1)

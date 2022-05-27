@@ -8,16 +8,16 @@ if __name__ == "__main__":
 
     while True:
 
-        if keyboard.is_pressed('tab'):
+        if keyboard.is_pressed("tab"):
 
             while True:
 
-                pyautogui.press('enter')
+                pyautogui.press("enter")
 
                 sleep(1)
 
-                pyautogui.press('tab')
+                pyautogui.press("tab")
 
-                if keyboard.is_pressed('q'):
+                if keyboard.is_pressed("q"):
 
                     break

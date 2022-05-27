@@ -10,14 +10,12 @@ click_product_selection_y_nsfw = 856
 
 def click_fill_product_button_normal():
 
-    pyautogui.click(x=click_product_selection_x,
-                    y=click_product_selection_y_normal)
+    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_normal)
 
 
 def click_fill_product_button_nsfw():
 
-    pyautogui.click(x=click_product_selection_x,
-                    y=click_product_selection_y_nsfw)
+    pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_nsfw)
 
 
 def fill_product(Create_new_issue_template):
@@ -26,23 +24,25 @@ def fill_product(Create_new_issue_template):
 
         click_fill_product_button_normal()
 
-        pyautogui.click(x=click_product_selection_x,
-                        y=click_product_selection_y_normal + 47)
+        pyautogui.click(
+            x=click_product_selection_x, y=click_product_selection_y_normal + 47
+        )
 
         click_fill_product_button_normal()
 
-        pyautogui.press('pagedown')
+        pyautogui.press("pagedown")
 
     elif Create_new_issue_template == "bug_report_NSFW.yml":
 
         click_fill_product_button_nsfw()
 
-        pyautogui.click(x=click_product_selection_x,
-                        y=click_product_selection_y_nsfw + 47)
+        pyautogui.click(
+            x=click_product_selection_x, y=click_product_selection_y_nsfw + 47
+        )
 
         click_fill_product_button_nsfw()
 
-        pyautogui.press('pagedown')
+        pyautogui.press("pagedown")
 
         pyautogui.scroll(36)
 
@@ -53,6 +53,7 @@ def fill_product(Create_new_issue_template):
 def click_selection_button():
 
     pyautogui.click(x=300, y=335)
+
 
 # fill problem as annoyance
 
@@ -72,6 +73,7 @@ def fill_problem_as_annoyance():
 
 
 # browser
+
 
 def click_browser_selection_button():
 
@@ -118,6 +120,7 @@ def fill_browser_and_device():
 
 # url
 
+
 def click_url_box():
 
     pyautogui.click(x=400, y=600)
@@ -141,12 +144,14 @@ def click_Adguard_Base_filter_box():
 
     pyautogui.click(x=308, y=880)
 
+
 # define to click the Adguard social filter box
 
 
 def click_Adguard_social_filter_box():
 
     pyautogui.click(x=308, y=850)
+
 
 # define to click the Adguard Annoyance filter box
 
@@ -162,13 +167,14 @@ def fill_filter():
 
     click_Adguard_Base_filter_box()
 
-    pyautogui.press('pagedown')
+    pyautogui.press("pagedown")
 
     click_Adguard_social_filter_box()
 
     click_Adguard_Annoyance_filter_box()
 
     click_filter_selection_button()
+
 
 # privacy
 
@@ -179,6 +185,7 @@ def click_privacy():
 
     pyautogui.click(x=285, y=672)
 
+
 # submit issue
 
 
@@ -187,7 +194,9 @@ def click_on_submit_new_issue():
     pyautogui.click(750, 1240)
 
 
-def open_create_issue_page(Create_new_issue_template, Create_new_issue_Account, site_domain):
+def open_create_issue_page(
+    Create_new_issue_template, Create_new_issue_Account, site_domain
+):
 
     url = f"https://github.com/{Create_new_issue_Account}/issues/new?template={Create_new_issue_template}&title={site_domain}"
 
@@ -204,8 +213,9 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     site_url, site_domain = ss_url_domain_closetab()
 
-    open_create_issue_page(Create_new_issue_template,
-                           Create_new_issue_Account, site_domain)
+    open_create_issue_page(
+        Create_new_issue_template, Create_new_issue_Account, site_domain
+    )
 
     sleep(3)
 
@@ -238,9 +248,10 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     screenshot_body()
 
-    pyautogui.hotkey('ctrl', 'a')
+    pyautogui.hotkey("ctrl", "a")
 
-    pyperclip.copy(f"""<details><summary>Screenshots:</summary>
+    pyperclip.copy(
+        f"""<details><summary>Screenshots:</summary>
 
 
 
@@ -248,7 +259,8 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
 
 
-</details><br/>""")
+</details><br/>"""
+    )
 
     paste_text()
 
@@ -272,7 +284,6 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
     close_tab()
 
     print("loop completed")
-
 
 
 page_down = 816

@@ -1,11 +1,12 @@
+from email.mime import image
 import os
 import sys
 import webbrowser
 from time import sleep
 from urllib.parse import urlparse
-
 import pyautogui
 import pyperclip
+import requests
 
 
 def extract_domain(url):
@@ -42,10 +43,10 @@ def return_url_and_domain():
 
 def copy_url_from_url_bar():
     # selecte the url of the current webpage
-    pyautogui.hotkey('alt', 'd')
+    pyautogui.hotkey("alt", "d")
 
     # copy the selected url to the clipboard
-    pyautogui.hotkey('ctrl', 'c')
+    pyautogui.hotkey("ctrl", "c")
 
 
 def take_sharex_ss():
@@ -53,7 +54,7 @@ def take_sharex_ss():
     # wait sometime before I  keyup the shortcut keys
     sleep(1)
 
-    pyautogui.hotkey('ctrl', 'prtsc')
+    pyautogui.hotkey("ctrl", "prtsc")
 
     sleep(0.1)
 
@@ -70,8 +71,9 @@ def check_if_image_uploaded():
 
         sleep(1)
 
+
 def check_if_image_uploaded_and_return_url():
-    
+
     check_if_image_uploaded()
 
     return pyperclip.paste()
@@ -160,8 +162,13 @@ def press_enter():
 
 
 def open_url_in_edge(issue_url):
-    webbrowser.register("edge", None, webbrowser.BackgroundBrowser(
-        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
+    webbrowser.register(
+        "edge",
+        None,
+        webbrowser.BackgroundBrowser(
+            "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+        ),
+    )
 
     webbrowser.get("edge").open(issue_url)
 
@@ -175,3 +182,19 @@ def select_all():
 def open_last_closed_tab_and_close_tab():
     open_last_closed_tab()
     close_tab()
+
+
+def return_image_path(path, url):
+
+    if not bool(os.path.exists(path)):
+        print("No image found")
+
+        response = requests.get(url)
+
+        with open(path, "wb") as f:
+            f.write(response.content)
+
+    else:
+        print("Image found")
+
+    return path

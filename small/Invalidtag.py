@@ -9,11 +9,11 @@ import keyboard
 
 
 def main():
-    pyautogui.press('end')
+    pyautogui.press("end")
 
     sleep(0.2)
 
-    pyperclip.copy('Why Invalid tag is added to this issue?')
+    pyperclip.copy("Why Invalid tag is added to this issue?")
 
     sleep(0.2)
 
@@ -21,7 +21,7 @@ def main():
 
     sleep(0.2)
 
-    pyautogui.hotkey('ctrl', 'v')
+    pyautogui.hotkey("ctrl", "v")
 
     sleep(0.2)
 
@@ -32,7 +32,7 @@ def main():
 
     # go to next tab
 
-    pyautogui.hotkey('ctrl', 'tab')
+    pyautogui.hotkey("ctrl", "tab")
 
     sleep(0.2)
 
@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
     while True:
 
-        if keyboard.is_pressed('ctrl + v'):
+        if keyboard.is_pressed("ctrl + v"):
 
             for _ in range(10):
                 main()
