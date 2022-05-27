@@ -14,7 +14,11 @@ def main():
     sleep(3)
 
     while True:
-        brave_new_topic_button = pyautogui.locateOnScreen('brave_new_topic_button.png', confidence=0.8)
+
+        path = return_image_path("brave\\brave_new_topic_button.png","https://i.imgur.com/NioS1tY.png")
+        brave_new_topic_button = pyautogui.locateOnScreen(
+            path, confidence=0.8
+        )
 
         if brave_new_topic_button is not None:
             brave_new_topic_button = pyautogui.center(brave_new_topic_button)
@@ -63,7 +67,9 @@ def main():
 
     sleep(0.1)
 
-    pyautogui.click(pyautogui.locateCenterOnScreen('create_topic.png', confidence=0.8))
+    path = return_image_path("brave\\create_topic.png","https://i.imgur.com/RCGyZgT.png")
+
+    pyautogui.click(pyautogui.locateCenterOnScreen(path, confidence=0.8))
 
     open_last_closed_tab()
 
