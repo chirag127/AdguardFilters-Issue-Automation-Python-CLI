@@ -1,6 +1,7 @@
 from f import *
 import keyboard
-from easylistmain import mi_to_send_mail_to_el, always_mi_to_mel
+from easylistmail import mi_to_mel
+from reporteronbrave import mi_on_bc
 from aRE import mi_by_ag_re
 
 click_product_selection_x = 320
@@ -134,15 +135,13 @@ def click_filter_selection_button():
     pyautogui.click(x=300, y=792)
 
 
-def click_adgurad_filter_box():
-
-    pyautogui.click(x=308, y=845)
-
-
+# Physical: {X=303,Y=826}
+# Physical: {X=303,Y=826}
+# Physical: {X=306,Y=842}
 # define to click the Adguard Base filter box
 def click_Adguard_Base_filter_box():
 
-    pyautogui.click(x=308, y=880)
+    pyautogui.click(x=300, y=826)
 
 
 # define to click the Adguard social filter box
@@ -150,7 +149,7 @@ def click_Adguard_Base_filter_box():
 
 def click_Adguard_social_filter_box():
 
-    pyautogui.click(x=308, y=850)
+    pyautogui.click(x=300, y=826)
 
 
 # define to click the Adguard Annoyance filter box
@@ -158,26 +157,42 @@ def click_Adguard_social_filter_box():
 
 def click_Adguard_Annoyance_filter_box():
 
-    pyautogui.click(x=308, y=900)
+    pyautogui.click(x=300, y=842)
 
 
-def fill_filter():
+def fill_filter(Create_new_issue_template):
 
-    click_filter_selection_button()
+    if Create_new_issue_template == "bug_report.yml":
 
-    click_Adguard_Base_filter_box()
+        click_filter_selection_button()
 
-    pyautogui.press("pagedown")
+        click_Adguard_Base_filter_box()
 
-    click_Adguard_social_filter_box()
+        pyautogui.press("pagedown")
 
-    click_Adguard_Annoyance_filter_box()
+        click_Adguard_social_filter_box()
 
-    click_filter_selection_button()
+        click_Adguard_Annoyance_filter_box()
 
+        click_filter_selection_button()
 
-# privacy
+    elif Create_new_issue_template == "bug_report_NSFW.yml":
+        # Physical: {X=335,Y=791}     
+        # Physical: {X=313,Y=841}     
+        # Physical: {X=313,Y=829}     
+        # Physical: {X=316,Y=856}     
 
+        pyautogui.click(x=335, y=791)
+
+        pyautogui.click(x=313, y=841)
+
+        move_down_one_page()
+
+        pyautogui.click(x=313, y=829)
+
+        pyautogui.click(x=316, y=856)
+
+        pyautogui.click(x=335, y=791)
 
 def click_privacy():
 
@@ -229,7 +244,7 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     image_url = check_if_image_uploaded_and_return_url()
 
-    always_mi_to_mel(site_url, site_domain, image_url)
+    mi_to_mel(site_url, site_domain, image_url)
 
     pyperclip.copy(site_url)
 
@@ -237,7 +252,7 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     sleep(0.1)
 
-    fill_filter()
+    fill_filter(Create_new_issue_template)
 
     move_down_one_page()
 
@@ -286,9 +301,11 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
     print("loop completed")
 
 
-page_down = 816
+
 
 Create_new_issue_Account = "AdguardTeam/AdguardFilters"
+
+# Create_new_issue_Account = "chirag127/test"
 
 
 if __name__ == "__main__":
@@ -306,13 +323,14 @@ if __name__ == "__main__":
 
             create_issue_on_gh_ag("bug_report_NSFW.yml", Create_new_issue_Account)
 
-        elif keyboard.is_pressed("alt + r"):
+        elif keyboard.is_pressed("alt + q"):
 
             mi_by_ag_re()
 
-        elif keyboard.is_pressed("alt + m"):
+        elif keyboard.is_pressed("alt + b"):
 
-            mi_to_send_mail_to_el()
+            mi_on_bc()
 
         else:
+
             sleep(0.1)

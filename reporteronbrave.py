@@ -3,22 +3,22 @@ import keyboard
 import random
 
 
-def main():
+def mi_on_bc():
 
     site_url, site_domain = ss_url_domain_closetab()
 
     url = "https://community.brave.com/c/support-and-troubleshooting/ad-blocking/78"
 
-    open_url_in_edge(url)
+    open_url(url)
 
     sleep(3)
 
     while True:
 
-        path = return_image_path("brave\\brave_new_topic_button.png","https://i.imgur.com/NioS1tY.png")
-        brave_new_topic_button = pyautogui.locateOnScreen(
-            path, confidence=0.8
+        path = return_image_path(
+            "brave_new_topic_button.png", "https://i.imgur.com/NioS1tY.png"
         )
+        brave_new_topic_button = pyautogui.locateOnScreen(path, confidence=0.8)
 
         if brave_new_topic_button is not None:
             brave_new_topic_button = pyautogui.center(brave_new_topic_button)
@@ -67,7 +67,9 @@ def main():
 
     sleep(0.1)
 
-    path = return_image_path("brave\\create_topic.png","https://i.imgur.com/RCGyZgT.png")
+    path = return_image_path(
+        "brave_create_topic_button.png", "https://i.imgur.com/RCGyZgT.png"
+    )
 
     pyautogui.click(pyautogui.locateCenterOnScreen(path, confidence=0.8))
 
@@ -81,7 +83,7 @@ if __name__ == "__main__":
     while True:
 
         if keyboard.is_pressed("alt + q"):
-            main()
+            mi_on_bc()
 
         else:
 

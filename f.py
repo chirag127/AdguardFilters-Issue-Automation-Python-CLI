@@ -9,6 +9,10 @@ import pyperclip
 import requests
 
 
+def open_url(url):
+    webbrowser.open(url)
+
+
 def extract_domain(url):
     """
     extract domain from url.
@@ -143,15 +147,6 @@ def press_end():
     pyautogui.press("end")
 
     print("Pressed end")
-
-
-def resource_path(relative_path):
-    try:
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
 
 
 def press_enter():

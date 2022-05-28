@@ -1,4 +1,3 @@
-from getpass import getpass
 import smtplib
 import ssl
 from f import *
@@ -28,7 +27,7 @@ def send_mail(message):
         print("Email sent successfully")
 
 
-def always_mi_to_mel(site_url, site_domain, image_url):
+def mi_to_mel(site_url, site_domain, image_url):
 
     subject = f"Report advertisement on {site_domain}"
 
@@ -60,7 +59,7 @@ def mi_to_send_mail_to_el():
 
     image_url = check_if_image_uploaded_and_return_url()
 
-    always_mi_to_mel(site_url, site_domain, image_url)
+    mi_to_mel(site_url, site_domain, image_url)
 
 
 if __name__ == "__main__":
