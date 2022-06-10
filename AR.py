@@ -177,10 +177,10 @@ def fill_filter(Create_new_issue_template):
         click_filter_selection_button()
 
     elif Create_new_issue_template == "bug_report_NSFW.yml":
-        # Physical: {X=335,Y=791}     
-        # Physical: {X=313,Y=841}     
-        # Physical: {X=313,Y=829}     
-        # Physical: {X=316,Y=856}     
+        # Physical: {X=335,Y=791}
+        # Physical: {X=313,Y=841}
+        # Physical: {X=313,Y=829}
+        # Physical: {X=316,Y=856}
 
         pyautogui.click(x=335, y=791)
 
@@ -193,6 +193,7 @@ def fill_filter(Create_new_issue_template):
         pyautogui.click(x=316, y=856)
 
         pyautogui.click(x=335, y=791)
+
 
 def click_privacy():
 
@@ -243,8 +244,6 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
     click_url_box()
 
     image_url = check_if_image_uploaded_and_return_url()
-
-    mi_to_mel(site_url, site_domain, image_url)
 
     pyperclip.copy(site_url)
 
@@ -300,7 +299,7 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     print("loop completed")
 
-
+    mi_to_mel(site_url, site_domain, image_url)
 
 
 Create_new_issue_Account = "AdguardTeam/AdguardFilters"
@@ -312,20 +311,22 @@ if __name__ == "__main__":
 
     print("Press ctrl + q to make new issue for a Non-NSFW website")
     print("Press alt + x to make new issue for a NSFW website")
+    print("Press alt + q to make new issue on adguard.com")
+    print("Press alt + b to make new issue on brave.com")
 
     while True:
 
         if keyboard.is_pressed("ctrl + q"):
 
-            create_issue_on_gh_ag("bug_report.yml", Create_new_issue_Account)
+            mi_by_ag_re()
 
         elif keyboard.is_pressed("alt + x"):
 
-            create_issue_on_gh_ag("bug_report_NSFW.yml", Create_new_issue_Account)
+            mi_by_ag_re(ischrome=False)
 
         elif keyboard.is_pressed("alt + q"):
 
-            mi_by_ag_re()
+            create_issue_on_gh_ag("bug_report.yml", Create_new_issue_Account)
 
         elif keyboard.is_pressed("alt + b"):
 

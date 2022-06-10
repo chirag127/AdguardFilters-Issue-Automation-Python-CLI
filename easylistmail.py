@@ -8,8 +8,8 @@ def send_mail(message):
 
     sender_email = "yttube35@gmail.com"
     # receiver_email = "whyiswhen@gmail.com"
-    # receiver_email = "easylist@protonmail.com"
-    receiver_email = "singhalchirag@protonmail.com"
+    receiver_email = "easylist@protonmail.com"
+    # receiver_email = "singhalchirag@protonmail.com"
 
     password = "imhappyy"
 
