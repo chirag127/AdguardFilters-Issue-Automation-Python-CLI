@@ -1,7 +1,7 @@
 from f import *
 import keyboard
-from easylistmail import mi_to_mel
-from reporteronbrave import mi_on_bc
+from easy_list_mail import mi_to_mel
+from reporter_on_brave import mi_on_bc
 from aRE import mi_by_ag_re
 
 click_product_selection_x = 320
@@ -227,7 +227,7 @@ def open_create_issue_page(
 
 def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
-    site_url, site_domain = ss_url_domain_closetab()
+    site_url, site_domain = ss_url_domain_close_tab()
 
     open_create_issue_page(
         Create_new_issue_template, Create_new_issue_Account, site_domain
@@ -255,7 +255,7 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     move_down_one_page()
 
-    # define the fuction to click screenshot body
+    # define the function to click screenshot body
     def screenshot_body():
 
         pyautogui.click(393, 500)
@@ -322,7 +322,7 @@ if __name__ == "__main__":
 
         elif keyboard.is_pressed("alt + x"):
 
-            mi_by_ag_re(ischrome=False)
+            mi_by_ag_re(is_chrome=False)
 
         elif keyboard.is_pressed("alt + q"):
 

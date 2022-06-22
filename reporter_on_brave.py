@@ -5,7 +5,7 @@ import random
 
 def mi_on_bc():
 
-    site_url, site_domain = ss_url_domain_closetab()
+    site_url, site_domain = ss_url_domain_close_tab()
 
     url = "https://community.brave.com/c/support-and-troubleshooting/ad-blocking/78"
 

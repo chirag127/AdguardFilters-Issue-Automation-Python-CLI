@@ -46,7 +46,7 @@ def return_url_and_domain():
 
 
 def copy_url_from_url_bar():
-    # selecte the url of the current webpage
+    # select the url of the current webpage
     pyautogui.hotkey("alt", "d")
 
     # copy the selected url to the clipboard
@@ -111,7 +111,7 @@ def go_to_next_tab():
 
 
 # define a function that will copy the url from the url bar using the pyautogui library by pressing the "ctrl" key + "c"
-def copyselectedtext():
+def copy_selected_text():
 
     pyautogui.hotkey("ctrl", "c")
 
@@ -133,7 +133,7 @@ def paste_text():
     print("Pasted text")
 
 
-def ss_url_domain_closetab():
+def ss_url_domain_close_tab():
     take_sharex_ss()
 
     site_url, site_domain = return_url_and_domain()

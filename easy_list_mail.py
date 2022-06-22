@@ -55,7 +55,7 @@ def mi_to_mel(site_url, site_domain, image_url):
 
 def mi_to_send_mail_to_el():
 
-    site_url, site_domain = ss_url_domain_closetab()
+    site_url, site_domain = ss_url_domain_close_tab()
 
     image_url = check_if_image_uploaded_and_return_url()
 
