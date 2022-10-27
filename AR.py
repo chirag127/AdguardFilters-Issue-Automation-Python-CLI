@@ -1,8 +1,23 @@
-from f import *
+import webbrowser
+from time import sleep
+
 import keyboard
-from easy_list_mail import mi_to_mel
-from reporter_on_brave import mi_on_bc
+import pyautogui
+import pyperclip
+
 from aRE import mi_by_ag_re
+from easy_list_mail import mi_to_mel
+from f import (
+    check_if_image_uploaded_and_return_url,
+    close_tab,
+    move_down_one_page,
+    open_last_closed_tab,
+    open_url_in_edge,
+    paste_text,
+    press_end,
+    ss_url_domain_close_tab,
+)
+from reporter_on_brave import mi_on_bc
 
 click_product_selection_x = 320
 click_product_selection_y_normal = 886
@@ -10,17 +25,25 @@ click_product_selection_y_nsfw = 856
 
 
 def click_fill_product_button_normal():
-
+    """
+    click_fill_product_button_normal Clicks on the product button with the given x y position.
+    """
     pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_normal)
 
 
 def click_fill_product_button_nsfw():
 
+    """
+    click_fill_product_button_nsfw click_product_button_nsfw click_fill_product_button_nsfw
+    """
     pyautogui.click(x=click_product_selection_x, y=click_product_selection_y_nsfw)
 
 
 def fill_product(Create_new_issue_template):
 
+    """
+    param Create_new_issue_template the new issue template
+    """
     if Create_new_issue_template == "bug_report.yml":
 
         click_fill_product_button_normal()
@@ -53,6 +76,9 @@ def fill_product(Create_new_issue_template):
 
 def click_selection_button():
 
+    """
+    clicks on the selection button
+    """
     pyautogui.click(x=300, y=335)
 
 
@@ -61,11 +87,17 @@ def click_selection_button():
 
 def click_annoyance():
 
+    """
+    click_annoyance is called by pyautogui when clicking on a button
+    """
     pyautogui.click(x=352, y=558)
 
 
 def fill_problem_as_annoyance():
 
+    """
+    Fill problem as annoyance.
+    """
     click_selection_button()
 
     click_annoyance()
@@ -78,25 +110,42 @@ def fill_problem_as_annoyance():
 
 def click_browser_selection_button():
 
+    """
+    click_browser_selection_button is called when the user clicks the selection button
+    """
     pyautogui.click(x=316, y=430)
 
 
 def select_browser():
 
+    """
+    click on the screen.
+    """
     pyautogui.click(x=322, y=524)
 
 
 def click_device_selection_button():
 
+    """
+    clicks on the device selection button
+    """
     pyautogui.click(x=320, y=534)
 
 
 def select_device():
 
+    """
+    clicks on the device and sets the click event
+    """
+
     pyautogui.click(x=311, y=581)
 
 
 def fill_browser_and_device():
+
+    """
+    Fill the browser and device selection buttons.
+    """
 
     click_browser_selection_button()
 
@@ -124,6 +173,10 @@ def fill_browser_and_device():
 
 def click_url_box():
 
+    """
+    click_url_box click_url_box click_url_box
+    """
+
     pyautogui.click(x=400, y=600)
 
 
@@ -131,28 +184,20 @@ def click_url_box():
 
 
 def click_filter_selection_button():
-
+    """
+    clicks on the filter button
+    """
     pyautogui.click(x=300, y=792)
 
 
-# Physical: {X=303,Y=826}
-# Physical: {X=303,Y=826}
-# Physical: {X=306,Y=842}
-# define to click the Adguard Base filter box
 def click_Adguard_Base_filter_box():
 
     pyautogui.click(x=300, y=826)
 
 
-# define to click the Adguard social filter box
-
-
 def click_Adguard_social_filter_box():
 
     pyautogui.click(x=300, y=826)
-
-
-# define to click the Adguard Annoyance filter box
 
 
 def click_Adguard_Annoyance_filter_box():
@@ -161,6 +206,7 @@ def click_Adguard_Annoyance_filter_box():
 
 
 def fill_filter(Create_new_issue_template):
+    """"""
 
     if Create_new_issue_template == "bug_report.yml":
 
@@ -214,6 +260,14 @@ def open_create_issue_page(
     Create_new_issue_template, Create_new_issue_Account, site_domain
 ):
 
+    """
+    This function opens the create issue page and fills the fields with the data provided.
+    :param Create_new_issue_template: The template to use for the issue.
+    :param Create_new_issue_Account: The account to use for the issue.
+    :param site_domain: The domain of the site to use for the issue.
+    :return:   None
+    """
+
     url = f"https://github.com/{Create_new_issue_Account}/issues/new?template={Create_new_issue_template}&title={site_domain}"
 
     if "NSFW" in Create_new_issue_template:
@@ -223,6 +277,7 @@ def open_create_issue_page(
     else:
 
         webbrowser.open(url)
+
 
 
 def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
@@ -255,7 +310,6 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     move_down_one_page()
 
-    # define the function to click screenshot body
     def screenshot_body():
 
         pyautogui.click(393, 500)
