@@ -279,7 +279,6 @@ def open_create_issue_page(
         webbrowser.open(url)
 
 
-
 def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     site_url, site_domain = ss_url_domain_close_tab()

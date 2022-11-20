@@ -6,13 +6,6 @@ import keyboard
 
 def send_mail(message):
 
-    sender_email = "yttube35@gmail.com"
-    # receiver_email = "whyiswhen@gmail.com"
-    receiver_email = "easylist@protonmail.com"
-    # receiver_email = "singhalchirag@protonmail.com"
-
-    password = "imhappyy"
-
     port = 465  # For SSL
     smtp_server = "smtp.gmail.com"
 
@@ -34,15 +27,15 @@ def mi_to_mel(site_url, site_domain, image_url):
     message = f"""Hi,
 
     Issue_url: {site_url}
-    
+
     Issue : advertisement
-    
-    Screenshot:  {image_url} 
+
+    Screenshot:  {image_url}
 
     System configuration: https://user-images.githubusercontent.com/76880977/126797496-0434116b-fc94-42c9-8139-fba02a985cf2.png
 
     Please resolve the issue as soon as possible.
-    
+
     Thanks,
     """
 
