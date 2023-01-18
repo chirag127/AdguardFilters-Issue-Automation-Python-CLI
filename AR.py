@@ -287,7 +287,7 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
         Create_new_issue_template, Create_new_issue_Account, site_domain
     )
 
-    sleep(3)
+    sleep(5)
 
     fill_product(Create_new_issue_template)
 
@@ -369,7 +369,7 @@ if __name__ == "__main__":
 
     while True:
 
-        if keyboard.is_pressed("ctrl + q"):
+        if keyboard.is_pressed("q"):
 
             mi_by_ag_re()
 

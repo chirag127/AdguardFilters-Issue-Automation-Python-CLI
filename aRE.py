@@ -78,20 +78,23 @@ def fill_product():
 
 
 def fill_Problem(isad):
+# Physical: {X=546,Y=476}; Scaled: {X=436,Y=380}; Relative: {X=-952,Y=-155}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #FFFFFF
+# Physical: {X=585,Y=521}; Scaled: {X=468,Y=416}; Relative: {X=585,Y=521}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #EBF5FF
+# Physical: {X=511,Y=661}; Scaled: {X=408,Y=528}; Relative: {X=511,Y=661}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #DFDFDF
+# Physical: {X=514,Y=746}; Scaled: {X=411,Y=596}; Relative: {X=514,Y=746}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #DFDFDF
 
-    pyautogui.click(x=738, y=440)
-
+    pyautogui.click(x=546, y=476, clicks=1, interval=0.0, button='left')
     if isad:
 
-        pyautogui.click(x=800, y=475)
+        pyautogui.click(x=585, y=521, clicks=1, interval=0.0, button='left')
 
     else:
 
         pyautogui.click(x=800, y=650)
 
-    pyautogui.click(x=523, y=619)
+    pyautogui.click(x=511, y=661, clicks=1, interval=0.0, button='left')
 
-    pyautogui.click(x=517, y=709)
+    pyautogui.click(x=514, y=746, clicks=1, interval=0.0, button='left')
 
     if_next_button_is_present()
 
