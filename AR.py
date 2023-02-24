@@ -52,6 +52,9 @@ def fill_product(Create_new_issue_template):
             x=click_product_selection_x, y=click_product_selection_y_normal + 47
         )
 
+        sleep(0.1)
+
+
         click_fill_product_button_normal()
 
         pyautogui.press("pagedown")
@@ -73,24 +76,42 @@ def fill_product(Create_new_issue_template):
 
 # product
 
+def fill_version():
+
+
+    # Physical: {X=359,Y=184}
+
+    pyautogui.click(x=359, y=184)
+
+    # sleep(0.1)
+
+    # pyperclip.copy("Version 4.1.53")
+
+    # sleep(0.1)
+
+    # pyautogui.hotkey("ctrl", "v")
+
+    # sleep(0.1)
+
 
 def click_selection_button():
 
     """
     clicks on the selection button
     """
-    pyautogui.click(x=300, y=335)
+    pyautogui.click(x=353, y=301)
 
 
 # fill problem as annoyance
 
 
 def click_annoyance():
+# Physical: {X=373,Y=513}
 
     """
     click_annoyance is called by pyautogui when clicking on a button
     """
-    pyautogui.click(x=352, y=558)
+    pyautogui.click(x=373, y=513)
 
 
 def fill_problem_as_annoyance():
@@ -108,12 +129,14 @@ def fill_problem_as_annoyance():
 # browser
 
 
+# Physical: {X=320,Y=380}; Scaled: {X=256,Y=304}; Relative: {X=320,Y=380}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #F3F4F6
+# Physical: {X=353,Y=487}; Scaled: {X=282,Y=389};
 def click_browser_selection_button():
 
     """
     click_browser_selection_button is called when the user clicks the selection button
     """
-    pyautogui.click(x=316, y=430)
+    pyautogui.click(x=320, y=380)
 
 
 def select_browser():
@@ -121,7 +144,7 @@ def select_browser():
     """
     click on the screen.
     """
-    pyautogui.click(x=322, y=524)
+    pyautogui.click(x=353, y=487)
 
 
 def click_device_selection_button():
@@ -181,28 +204,30 @@ def click_url_box():
 
 
 # filter
-
+# Physical: {X=474,Y=716}; Scaled: {X=379,Y=572}; Relative: {X=474,Y=716}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #F3F4F6
+# Physical: {X=363,Y=759}; Scaled: {X=290,Y=607}; Relative: {X=363,Y=759}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #F4F6F8
 
 def click_filter_selection_button():
     """
     clicks on the filter button
     """
-    pyautogui.click(x=300, y=792)
+    pyautogui.click(x=474, y=716)
 
 
 def click_Adguard_Base_filter_box():
 
-    pyautogui.click(x=300, y=826)
+    pyautogui.click(x=363, y=759)
 
 
-def click_Adguard_social_filter_box():
 
-    pyautogui.click(x=300, y=826)
+# def click_Adguard_social_filter_box():
+
+#     pyautogui.click(x=300, y=826)
 
 
-def click_Adguard_Annoyance_filter_box():
+# def click_Adguard_Annoyance_filter_box():
 
-    pyautogui.click(x=300, y=842)
+#     pyautogui.click(x=300, y=842)
 
 
 def fill_filter(Create_new_issue_template):
@@ -214,19 +239,20 @@ def fill_filter(Create_new_issue_template):
 
         click_Adguard_Base_filter_box()
 
-        pyautogui.press("pagedown")
+        sleep(0.1)
 
-        click_Adguard_social_filter_box()
+        click_Adguard_Base_filter_box()
 
-        click_Adguard_Annoyance_filter_box()
+        # pyautogui.press("pagedown")
+
+        # click_Adguard_social_filter_box()
+
+        # click_Adguard_Annoyance_filter_box()
 
         click_filter_selection_button()
 
     elif Create_new_issue_template == "bug_report_NSFW.yml":
-        # Physical: {X=335,Y=791}
-        # Physical: {X=313,Y=841}
-        # Physical: {X=313,Y=829}
-        # Physical: {X=316,Y=856}
+
 
         pyautogui.click(x=335, y=791)
 
@@ -241,19 +267,19 @@ def fill_filter(Create_new_issue_template):
         pyautogui.click(x=335, y=791)
 
 
-def click_privacy():
+# def click_privacy():
 
-    # pyautogui.click(x=287, y=973)
+#     # pyautogui.click(x=287, y=973)
 
-    pyautogui.click(x=285, y=672)
+#     pyautogui.click(x=285, y=672)
 
 
 # submit issue
 
 
-def click_on_submit_new_issue():
+# def click_on_submit_new_issue():
 
-    pyautogui.click(750, 1240)
+#     pyautogui.click(750, 1240)
 
 
 def open_create_issue_page(
@@ -287,9 +313,15 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
         Create_new_issue_template, Create_new_issue_Account, site_domain
     )
 
-    sleep(5)
+    sleep(3)
+
+
 
     fill_product(Create_new_issue_template)
+
+    image_url = check_if_image_uploaded_and_return_url()
+
+    fill_version()
 
     fill_problem_as_annoyance()
 
@@ -297,7 +329,6 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     click_url_box()
 
-    image_url = check_if_image_uploaded_and_return_url()
 
     pyperclip.copy(site_url)
 
@@ -352,18 +383,19 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     print("loop completed")
 
-    mi_to_mel(site_url, site_domain, image_url)
+    # mi_to_mel(site_url, site_domain, image_url)
 
 
+
+Create_new_issue_Account = "chirag127/test"
 Create_new_issue_Account = "AdguardTeam/AdguardFilters"
-
-# Create_new_issue_Account = "chirag127/test"
 
 
 if __name__ == "__main__":
 
     print("Press ctrl + q to make new issue for a Non-NSFW website")
     print("Press alt + x to make new issue for a NSFW website")
+
     print("Press alt + q to make new issue on adguard.com")
     print("Press alt + b to make new issue on brave.com")
 
