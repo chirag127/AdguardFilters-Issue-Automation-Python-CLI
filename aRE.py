@@ -132,6 +132,63 @@ def fill_comment():
 
     sleep(0.01)
 
+    # check the checkbox https://i.imgur.com/Au7OeFT.png
+
+    press_end()
+
+    i = 0
+    while i < 20:
+        path = return_image_path(
+            "AdGuard_Reporter_checkbox_gh_username.png", "https://i.imgur.com/Au7OeFT.png"
+        )
+
+        los = pyautogui.locateOnScreen(path, region=(380, 240, 120, 250), confidence=0.5, grayscale=True)
+
+        if (
+            los is None
+        ):
+            print("checkbox is not present")
+            sleep(1)
+            i += 1
+
+        else:
+            print("checkbox is present")
+            pyautogui.click(los)
+
+            break
+
+
+    i = 0
+    while i < 20:
+        path = return_image_path(
+            "AdGuard_Reporter_checkbox_gh_username.png", "https://i.imgur.com/Au7OeFT.png"
+        )
+
+        los = pyautogui.locateOnScreen(path, region=(380, 240, 120, 250), confidence=0.5, grayscale=True)
+
+        if (
+            los is None
+        ):
+            print("checkbox is not present")
+            sleep(1)
+            i += 1
+
+        else:
+            print("checkbox is present")
+
+
+            x_pos =los[0]
+            y_pos = los[1]
+
+            pyautogui.click(x_pos + 20, y_pos + 85)
+
+
+            pyautogui.typewrite("gh_username")
+
+            pyautogui.click(x_pos, y_pos + 85 + 68)
+
+            break
+
     press_enter()
 
 

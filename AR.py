@@ -54,7 +54,6 @@ def fill_product(Create_new_issue_template):
 
         sleep(0.1)
 
-
         click_fill_product_button_normal()
 
         pyautogui.press("pagedown")
@@ -76,8 +75,8 @@ def fill_product(Create_new_issue_template):
 
 # product
 
-def fill_version():
 
+def fill_version():
 
     # Physical: {X=359,Y=184}
 
@@ -106,7 +105,7 @@ def click_selection_button():
 
 
 def click_annoyance():
-# Physical: {X=373,Y=513}
+    # Physical: {X=373,Y=513}
 
     """
     click_annoyance is called by pyautogui when clicking on a button
@@ -207,6 +206,7 @@ def click_url_box():
 # Physical: {X=474,Y=716}; Scaled: {X=379,Y=572}; Relative: {X=474,Y=716}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #F3F4F6
 # Physical: {X=363,Y=759}; Scaled: {X=290,Y=607}; Relative: {X=363,Y=759}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #F4F6F8
 
+
 def click_filter_selection_button():
     """
     clicks on the filter button
@@ -217,7 +217,6 @@ def click_filter_selection_button():
 def click_Adguard_Base_filter_box():
 
     pyautogui.click(x=363, y=759)
-
 
 
 # def click_Adguard_social_filter_box():
@@ -252,7 +251,6 @@ def fill_filter(Create_new_issue_template):
         click_filter_selection_button()
 
     elif Create_new_issue_template == "bug_report_NSFW.yml":
-
 
         pyautogui.click(x=335, y=791)
 
@@ -315,8 +313,6 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
 
     sleep(3)
 
-
-
     fill_product(Create_new_issue_template)
 
     image_url = check_if_image_uploaded_and_return_url()
@@ -328,7 +324,6 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
     fill_browser_and_device()
 
     click_url_box()
-
 
     pyperclip.copy(site_url)
 
@@ -384,7 +379,6 @@ def create_issue_on_gh_ag(Create_new_issue_template, Create_new_issue_Account):
     print("loop completed")
 
     # mi_to_mel(site_url, site_domain, image_url)
-
 
 
 Create_new_issue_Account = "chirag127/test"
