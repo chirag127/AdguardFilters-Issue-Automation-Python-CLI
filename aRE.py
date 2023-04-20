@@ -66,55 +66,51 @@ def open_create_issue_page(url, is_chrome):
     issue_url = f"https://reports.adguard.com/en/new_issue.html?browser=Other&browser_detail=EdgeChromium&browsing_security.enabled=false&filters=1003.1004.1001.1002.1000.14.17.2.3.4.11&product_type=Ext&product_version=4.1.53&stealth.DNT=true&stealth.enabled=true&stealth.hide_search_queries=true&stealth.strip_url=true&url={url}"
 
     if is_chrome:
-
         webbrowser.open(issue_url)
 
     else:
-
         open_url_in_edge(issue_url)
 
     sleep(3)
 
 
 def fill_product():
-
     if_next_button_is_present()
 
 
 def fill_Problem(isad):
-# Physical: {X=546,Y=476}; Scaled: {X=436,Y=380}; Relative: {X=-952,Y=-155}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #FFFFFF
-# Physical: {X=585,Y=521}; Scaled: {X=468,Y=416}; Relative: {X=585,Y=521}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #EBF5FF
-# Physical: {X=511,Y=661}; Scaled: {X=408,Y=528}; Relative: {X=511,Y=661}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #DFDFDF
-# Physical: {X=514,Y=746}; Scaled: {X=411,Y=596}; Relative: {X=514,Y=746}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #DFDFDF
+    # Physical: {X=546,Y=476}; Scaled: {X=436,Y=380}; Relative: {X=-952,Y=-155}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #FFFFFF
+    # Physical: {X=585,Y=521}; Scaled: {X=468,Y=416}; Relative: {X=585,Y=521}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #EBF5FF
+    # Physical: {X=511,Y=661}; Scaled: {X=408,Y=528}; Relative: {X=511,Y=661}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #DFDFDF
+    # Physical: {X=514,Y=746}; Scaled: {X=411,Y=596}; Relative: {X=514,Y=746}; Dpi: 120; Raw Dpi: 141; Dpi Ratio: 0.85; Screen Resolution: {Width=1920, Height=1080}; Pixel Color: #DFDFDF
 
-    pyautogui.click(x=546, y=476, clicks=1, interval=0.0, button='left')
+    pyautogui.click(x=546, y=476, clicks=1, interval=0.0, button="left")
     if isad:
-
-        pyautogui.click(x=585, y=521, clicks=1, interval=0.0, button='left')
+        pyautogui.click(x=585, y=521, clicks=1, interval=0.0, button="left")
 
     else:
-
         pyautogui.click(x=800, y=650)
 
-    pyautogui.click(x=511, y=661, clicks=1, interval=0.0, button='left')
+    pyautogui.click(x=511, y=661, clicks=1, interval=0.0, button="left")
 
-    pyautogui.click(x=514, y=746, clicks=1, interval=0.0, button='left')
+    pyautogui.click(x=514, y=746, clicks=1, interval=0.0, button="left")
 
     if_next_button_is_present()
 
 
 def fill_url():
+    sleep(0.5)
+
+    pyautogui.click(x=498, y=574, clicks=1, interval=0.0, button="left")
 
     if_next_button_is_present()
 
 
 def fill_filter():
-
     press_enter()
 
 
 def fill_screenshot():
-
     pyautogui.click(x=848, y=720)
 
     pyautogui.hotkey("ctrl", "v")
@@ -129,78 +125,49 @@ def fill_screenshot():
 
 
 def fill_comment():
+    pyautogui.press("home")
 
-    sleep(0.01)
+    sleep(0.1)
 
-    # check the checkbox https://i.imgur.com/Au7OeFT.png
+    # Physical: {X=607,Y=589}
+
+    pyautogui.click(x=607, y=589, clicks=1, interval=0.0, button="left")
+
+    sleep(0.1)
+
+    text = """Hello, I am using Adguard for Windows and I have found an annoyance/ad on this website.
+Please fix it. Thank you.
+can you please tell the user filter if this annoyance don't follow the rules of the filter list."""
+
+    pyperclip.copy(text)
+
+    pyautogui.hotkey("ctrl", "v")
+
+    pyautogui.click(x=429, y=696, clicks=1, interval=0.0, button="left")
+
+    sleep(0.1)
+
+    pyautogui.click(x=457, y=804, clicks=1, interval=0.0, button="left")
+
+    pyautogui.write("neer9")
+
+    sleep(0.1)
+    # Physical: {X=438,Y=851}
+
+    pyautogui.click(x=438, y=851, clicks=1, interval=0.0, button="left")
 
     press_end()
-
-    i = 0
-    while i < 20:
-        path = return_image_path(
-            "AdGuard_Reporter_checkbox_gh_username.png", "https://i.imgur.com/Au7OeFT.png"
-        )
-
-        los = pyautogui.locateOnScreen(path, region=(380, 240, 120, 250), confidence=0.5, grayscale=True)
-
-        if (
-            los is None
-        ):
-            print("checkbox is not present")
-            sleep(1)
-            i += 1
-
-        else:
-            print("checkbox is present")
-            pyautogui.click(los)
-
-            break
-
-
-    i = 0
-    while i < 20:
-        path = return_image_path(
-            "AdGuard_Reporter_checkbox_gh_username.png", "https://i.imgur.com/Au7OeFT.png"
-        )
-
-        los = pyautogui.locateOnScreen(path, region=(380, 240, 120, 250), confidence=0.5, grayscale=True)
-
-        if (
-            los is None
-        ):
-            print("checkbox is not present")
-            sleep(1)
-            i += 1
-
-        else:
-            print("checkbox is present")
-
-
-            x_pos =los[0]
-            y_pos = los[1]
-
-            pyautogui.click(x_pos + 20, y_pos + 85)
-
-
-            pyautogui.typewrite("gh_username")
-
-            pyautogui.click(x_pos, y_pos + 85 + 68)
-
-            break
 
     press_enter()
 
 
 def fill_check():
-
     sleep(0.01)
 
     press_end()
 
 
 def mi_by_ag_re(isad=True, is_chrome=True):
-
     # wait sometime before I  keyup the shortcut keys
     sleep(1)
 
@@ -258,7 +225,6 @@ def mi_by_ag_re(isad=True, is_chrome=True):
 
 
 if __name__ == "__main__":
-
     print("Press ctrl + q to make new issue for annoyance on a Non-NSFW website")
 
     print("Press alt + q to make new issue for advertisement on Non-NSFW  website")
@@ -266,17 +232,13 @@ if __name__ == "__main__":
     print("Press alt + x to make new issue for a NSFW website")
 
     while True:
-
         import keyboard
 
         if keyboard.is_pressed("ctrl + q"):
-
             mi_by_ag_re()
 
         elif keyboard.is_pressed("alt + q"):
-
             mi_by_ag_re(True, True)
 
         else:
-
             sleep(0.1)
