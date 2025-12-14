@@ -1,3 +1,7 @@
+# PROPOSED README
+
+This is a proposed new `README.md` file.
+
 # AdguardFilters-Issue-Automation-Python-CLI
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc/4.0/)

@@ -1,72 +1,38 @@
-name: Continuous Integration
+name: Python CI
 
-# Controls when the workflow will run
-# Triggers on push to the main branch and on pull request targeting the main branch
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This job builds the code, runs tests, and lints
-  build_and_test:
+  build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        python-version: ['3.10', '3.11', '3.12', '3.13'] # Support common Python versions
+        python-version: ["3.9", "3.10", "3.11"]
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      # Set up Python environment
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      # Install uv (package manager and dependency resolver)
-      - name: Install uv
-        run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
-          echo "$HOME/.uv/bin" >> $GITHUB_PATH
-
-      # Install dependencies using uv
-      - name: Install Dependencies
-        run: uv pip install --system --all-extras --cache-dir .uv/cache
-
-      # Run Ruff for linting and formatting
-      - name: Lint with Ruff
-        run: ruff check . --fix
-        # Note: --fix can be used here, but might require committed changes. Consider a separate format step.
-
-      # Run Pytest for unit and integration tests
-      - name: Test with Pytest
-        run: pytest --cov=./ --cov-report=xml
-        # Collect coverage reports for Codecov
-
-      # Upload coverage reports for Codecov
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # Ensure CODECOV_TOKEN is set in repository secrets
-          files: ./coverage.xml
-          fail_ci_if_error: true # Fails the build if Codecov upload fails
-
-      # Publish to PyPI if on main branch and is a tagged release
-      # This is a simplified example; a more robust system might use dedicated publish jobs/steps
-      - name: Publish to PyPI
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && matrix.python-version == '3.12'
-        env:
-          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-        run: |
-          uv pip install --system twine
-          python -m twine upload --repository testpypi dist/* # Use testpypi for testing releases
-          # python -m twine upload --repository pypi dist/* # Uncomment for actual PyPI upload
-          # Note: Requires build step before upload to create dist/* files.
-          # A separate job for 'build' which runs 'python -m build' and then this job can be triggered.
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install ruff black isort
+    - name: Lint with ruff
+      run: |
+        ruff .
+    - name: Format with black
+      run: |
+        black --check .
+    - name: Sort imports with isort
+      run: |
+        isort --check-only .
+    - name: Test with pytest
+      run: |
+        pytest
