@@ -1,10 +1,13 @@
-
-import pyautogui
 from time import sleep
-import pyperclip
-import keyboard
 
-def post_comment(comment: str, x: int, y: int, comment_button_x: int, comment_button_y: int) -> None:
+import keyboard
+import pyautogui
+import pyperclip
+
+
+def post_comment(
+    comment: str, x: int, y: int, comment_button_x: int, comment_button_y: int
+) -> None:
     """
     Automates posting a comment on a webpage.
     """
@@ -21,6 +24,7 @@ def post_comment(comment: str, x: int, y: int, comment_button_x: int, comment_bu
     pyautogui.hotkey("ctrl", "tab")
     sleep(0.2)
 
+
 def main():
     comment_text = "Why is the Invalid tag added to this issue?"
     # Coordinates for the comment box and button
@@ -30,8 +34,15 @@ def main():
     comment_button_y = 747
 
     for _ in range(10):
-        post_comment(comment_text, comment_box_x, comment_box_y, comment_button_x, comment_button_y)
+        post_comment(
+            comment_text,
+            comment_box_x,
+            comment_box_y,
+            comment_button_x,
+            comment_button_y,
+        )
         sleep(1)
+
 
 if __name__ == "__main__":
     while True:

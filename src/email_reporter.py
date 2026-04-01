@@ -1,9 +1,10 @@
-
 import smtplib
 import ssl
-from .browser_utils import get_current_url_and_domain, close_tab
+
 from .automation_utils import wait_for_imgur_url
+from .browser_utils import close_tab, get_current_url_and_domain
 from .config import get_email_credentials
+
 
 def send_secure_email(message: str) -> None:
     """Sends an email using a secure SSL connection."""
@@ -18,6 +19,7 @@ def send_secure_email(message: str) -> None:
             print("Email sent successfully")
     except smtplib.SMTPException as e:
         print(f"Failed to send email: {e}")
+
 
 def format_ad_report(site_url: str, site_domain: str, image_url: str) -> str:
     """Formats the ad report email."""
@@ -34,6 +36,7 @@ def format_ad_report(site_url: str, site_domain: str, image_url: str) -> str:
     Thanks,
     """
     return f"Subject: {subject}\n\n{body}"
+
 
 def create_and_send_ad_report() -> None:
     """Gathers information, creates, and sends an ad report."""

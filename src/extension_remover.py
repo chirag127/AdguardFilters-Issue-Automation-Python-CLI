@@ -1,7 +1,8 @@
-
-import pyautogui
-import keyboard
 from time import sleep
+
+import keyboard
+import pyautogui
+
 
 def remove_extension() -> None:
     """
@@ -22,12 +23,14 @@ def remove_extension() -> None:
     except pyautogui.PyAutoGUIException as e:
         print(f"An error occurred: {e}")
 
+
 def main():
     """
     Main function to remove multiple extensions.
     """
     for _ in range(5):
         remove_extension()
+
 
 if __name__ == "__main__":
     while True:

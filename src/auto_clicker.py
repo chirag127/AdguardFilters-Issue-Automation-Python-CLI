@@ -1,7 +1,8 @@
-
-import pyautogui
 from time import sleep
+
 import keyboard
+import pyautogui
+
 
 def auto_click_and_tab() -> None:
     """
@@ -13,6 +14,7 @@ def auto_click_and_tab() -> None:
         pyautogui.press("tab")
         if keyboard.is_pressed("q"):
             break
+
 
 if __name__ == "__main__":
     while True:

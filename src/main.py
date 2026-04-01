@@ -1,13 +1,15 @@
-
 import argparse
-import keyboard
 from time import sleep
-from .email_reporter import create_and_send_ad_report
+
+import keyboard
+
+from .auto_clicker import auto_click_and_tab
 from .brave_reporter import report_ad_on_brave_community
 from .comment_placer import main as post_comments
-from .auto_clicker import auto_click_and_tab
+from .email_reporter import create_and_send_ad_report
 from .extension_remover import main as remove_extensions
 from .screenshot import take_screenshot
+
 
 def main():
     """
@@ -67,6 +69,7 @@ def main():
                 sleep(0.1)
     elif args.task == "screenshot":
         take_screenshot()
+
 
 if __name__ == "__main__":
     main()

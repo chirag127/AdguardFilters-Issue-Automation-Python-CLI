@@ -1,6 +1,7 @@
-
 import os
+
 import requests
+
 
 def get_image_path(path: str, url: str) -> str:
     """

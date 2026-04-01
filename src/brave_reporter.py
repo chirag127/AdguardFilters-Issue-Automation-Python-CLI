@@ -1,21 +1,18 @@
-
-import pyautogui
-import pyperclip
 import random
 from time import sleep
 
+import pyautogui
+import pyperclip
+
+from .automation_utils import paste_text, select_all, wait_for_imgur_url
 from .browser_utils import (
-    open_url,
-    get_current_url_and_domain,
     close_tab,
+    get_current_url_and_domain,
     open_last_closed_tab,
-)
-from .automation_utils import (
-    wait_for_imgur_url,
-    paste_text,
-    select_all,
+    open_url,
 )
 from .file_utils import get_image_path
+
 
 def create_brave_report_content(site_url: str, image_url: str) -> str:
     """Creates the content for a new topic on the Brave Community forum."""
@@ -35,6 +32,7 @@ def create_brave_report_content(site_url: str, image_url: str) -> str:
 **Does the site work as expected when using Chrome?** yes
 """
 
+
 def report_ad_on_brave_community() -> None:
     """Automates the process of reporting an ad on the Brave Community forum."""
     site_url, site_domain = get_current_url_and_domain()
@@ -52,7 +50,9 @@ def report_ad_on_brave_community() -> None:
 
     while True:
         try:
-            new_topic_button = pyautogui.locateCenterOnScreen(new_topic_button_path, confidence=0.8)
+            new_topic_button = pyautogui.locateCenterOnScreen(
+                new_topic_button_path, confidence=0.8
+            )
             if new_topic_button:
                 pyautogui.click(new_topic_button)
                 break
@@ -80,7 +80,9 @@ def report_ad_on_brave_community() -> None:
         return
 
     try:
-        create_topic_button = pyautogui.locateCenterOnScreen(create_topic_button_path, confidence=0.8)
+        create_topic_button = pyautogui.locateCenterOnScreen(
+            create_topic_button_path, confidence=0.8
+        )
         if create_topic_button:
             pyautogui.click(create_topic_button)
     except pyautogui.PyAutoGUIException:

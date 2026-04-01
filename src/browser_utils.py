@@ -1,13 +1,15 @@
-
 import webbrowser
+from time import sleep
 from urllib.parse import urlparse
+
 import pyautogui
 import pyperclip
-from time import sleep
+
 
 def open_url(url: str) -> None:
     """Opens a URL in the default web browser."""
     webbrowser.open(url)
+
 
 def extract_domain(url: str) -> str:
     """Extracts the domain from a URL."""
@@ -20,6 +22,7 @@ def extract_domain(url: str) -> str:
         domain = domain[7:]
     return domain
 
+
 def get_current_url_and_domain() -> tuple[str, str]:
     """Gets the current URL and domain from the browser's address bar."""
     pyautogui.hotkey("alt", "d")
@@ -29,20 +32,24 @@ def get_current_url_and_domain() -> tuple[str, str]:
     site_domain = extract_domain(site_url)
     return site_url, site_domain
 
+
 def open_last_closed_tab() -> None:
     """Opens the last closed tab in the browser."""
     pyautogui.hotkey("ctrl", "shift", "t")
     print("Opened last closed tab")
+
 
 def close_tab() -> None:
     """Closes the current tab in the browser."""
     pyautogui.hotkey("ctrl", "w")
     print("Closed tab")
 
+
 def go_to_next_tab() -> None:
     """Switches to the next tab in the browser."""
     pyautogui.hotkey("ctrl", "tab")
     print("Moved to next tab")
+
 
 def open_url_in_edge(issue_url: str) -> None:
     """Opens a URL specifically in Microsoft Edge."""

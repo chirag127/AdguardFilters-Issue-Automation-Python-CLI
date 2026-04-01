@@ -1,7 +1,8 @@
-
 from io import BytesIO
+
 import pyautogui
 import win32clipboard
+
 
 def take_screenshot(region: tuple[int, int, int, int] | None = None) -> None:
     """
@@ -22,6 +23,7 @@ def take_screenshot(region: tuple[int, int, int, int] | None = None) -> None:
         print("Screenshot copied to clipboard.")
     except (pyautogui.PyAutoGUIException, OSError) as e:
         print(f"Failed to take screenshot: {e}")
+
 
 if __name__ == "__main__":
     # Example usage: take a screenshot of a specific region
