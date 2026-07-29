@@ -1,111 +1,97 @@
 # AdguardFilters-Issue-Automation-Python-CLI
 
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![Live](https://img.shields.io/badge/live-oriz.in-2ea44f?style=flat-square)](https://AdguardFilters-Issue-Automation-Python-CLI.oriz.in)
+[![Stars](https://img.shields.io/github/stars/chirag127/AdguardFilters-Issue-Automation-Python-CLI?style=flat-square)](https://github.com/chirag127/AdguardFilters-Issue-Automation-Python-CLI/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Python Version](https://img.shields.io/badge/python-3.9%2B-blue?style=flat-square)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
-[![Imports: isort](https://img.shields.io/badge/%20imports-isort-1674b1?style=flat-square)](https://pycqa.github.io/isort/)
 
-High-performance Python CLI that automates issue creation, triage, and reporting for AdGuard filter lists, streamlining maintenance of large‑scale content‑blocking repositories.
+Python CLI that automates issue reporting and repetitive browser tasks for AdGuard filter-list maintenance — email reports, Brave Community topics, bulk commenting, auto-clicking, extension cleanup, and screenshots.
 
----
-
-## ✨ Features
-
--   📧 **Email Reporting:** Automatically generate and send ad-blocking reports via email.
--   🛡️ **Brave Community Reporting:** Automate the process of creating new topics on the Brave Community forum.
--   💬 **Automated Commenting:** Post predefined comments on multiple tabs with a single command.
--   🖱️ **Auto-Clicker:** Automate a sequence of clicks and key presses for repetitive tasks.
--   🔧 **Extension Management:** Quickly remove multiple browser extensions.
--   📸 **Screenshot Utility:** Capture screenshots of specific regions or the entire screen.
+Live page: https://AdguardFilters-Issue-Automation-Python-CLI.oriz.in
 
 ---
 
-## 🚀 Installation & Usage
+## Features
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/chirag127/AdguardFilters-Issue-Automation-Python-CLI.git
-    cd AdguardFilters-Issue-Automation-Python-CLI
-    ```
-
-2.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Run a task:**
-    ```bash
-    python src/main.py <task>
-    ```
-    Replace `<task>` with one of the following:
-    -   `report-email`
-    -   `report-brave`
-    -   `post-comments`
-    -   `auto-click`
-    -   `remove-extensions`
-    -   `screenshot`
+- **Email Reporting** — generate and send ad-blocking reports via email.
+- **Brave Community Reporting** — automate creating new topics on the Brave Community forum.
+- **Automated Commenting** — post predefined comments across multiple tabs with one command.
+- **Auto-Clicker** — replay a sequence of clicks and key presses for repetitive tasks.
+- **Extension Management** — remove multiple browser extensions quickly.
+- **Screenshot Utility** — capture a region or the full screen.
 
 ---
 
-## 🌳 Architecture
+## Installation
 
+Requires Python 3.9+.
+
+```bash
+git clone https://github.com/chirag127/AdguardFilters-Issue-Automation-Python-CLI.git
+cd AdguardFilters-Issue-Automation-Python-CLI
+pip install -e .
 ```
-.
-├── .github
-│   ├── ISSUE_TEMPLATE
-│   │   └── bug_report.md
-│   ├── workflows
-│   │   └── ci.yml
-│   └── PULL_REQUEST_TEMPLATE.md
-├── assets
-│   ├── AdGuard_Reporter_checkbox_gh_username.png
-│   ├── AdGuard_Reporter_next_button.png
-│   ├── adguard_next.png
-│   ├── brave_create_topic_button.png
-│   └── brave_new_topic_button.png
-├── scripts
-│   ├── a.txt
-│   ├── command.txt
-│   ├── d.txt
-│   ├── param.txt
-│   ├── r.txt
-│   └── url.txt
-├── src
-│   ├── __init__.py
-│   ├── auto_clicker.py
-│   ├── automation_utils.py
-│   ├── brave_reporter.py
-│   ├── browser_utils.py
-│   ├── comment_placer.py
-│   ├── email_reporter.py
-│   ├── extension_remover.py
-│   ├── file_utils.py
-│   ├── main.py
-│   └── screenshot.py
-├── .gitignore
-├── AGENTS.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── PROPOSED_README.md
-├── README.md
-└── SECURITY.md
 
+Copy `.env.example` to `.env` and fill in the values (SMTP creds, GitHub token, etc.).
+
+```bash
+cp .env.example .env
 ```
 
 ---
 
-## 🤝 Contributing
+## Usage
 
-Contributions are welcome! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+```bash
+python src/main.py <task>
+```
+
+`<task>` is one of:
+
+| Task | Action |
+|------|--------|
+| `report-email` | Generate + send an ad-blocking report by email |
+| `report-brave` | Create a new topic on the Brave Community forum |
+| `post-comments` | Post predefined comments across open tabs |
+| `auto-click` | Replay a click/keypress sequence |
+| `remove-extensions` | Bulk-remove browser extensions |
+| `screenshot` | Capture a region or full screen |
 
 ---
 
-## 📜 License
+## Project layout
 
-This project is licensed under the [CC BY-NC 4.0](LICENSE) license.
+```
+src/
+  main.py             # CLI entry point / task dispatch
+  email_reporter.py   # email report generation + send
+  brave_reporter.py   # Brave Community topic automation
+  comment_placer.py   # multi-tab comment posting
+  auto_clicker.py     # click/keypress replay
+  extension_remover.py# browser extension removal
+  screenshot.py       # screen capture
+  browser_utils.py    # shared browser helpers
+  automation_utils.py # shared automation helpers
+  file_utils.py       # file helpers
+  config.py           # env/config loading
+assets/               # reference images for image-matching automation
+```
 
 ---
 
-## ⭐ Star this repo
+## Contributing
 
-If you find this project useful, please consider giving it a star!
+Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+## License
+
+[MIT](LICENSE) © Chirag Singhal.
+
+---
+
+## Star this repo
+
+If this project is useful, please consider giving it a star.
