@@ -1,97 +1,116 @@
-# AdguardFilters-Issue-Automation-Python-CLI
+# filter-report
 
-[![Live](https://img.shields.io/badge/live-oriz.in-2ea44f?style=flat-square)](https://AdguardFilters-Issue-Automation-Python-CLI.oriz.in)
-[![Stars](https://img.shields.io/github/stars/chirag127/AdguardFilters-Issue-Automation-Python-CLI?style=flat-square)](https://github.com/chirag127/AdguardFilters-Issue-Automation-Python-CLI/stargazers)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![Python Version](https://img.shields.io/badge/python-3.9%2B-blue?style=flat-square)](https://www.python.org/downloads/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
+[![Live](https://img.shields.io/badge/live-filter--report.oriz.in-blue)](https://filter-report.oriz.in)
+[![Stars](https://img.shields.io/github/stars/chirag127/filter-report?style=social)](https://github.com/chirag127/filter-report/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/filter-report)](https://pypi.org/project/filter-report/)
 
-Python CLI that automates issue reporting and repetitive browser tasks for AdGuard filter-list maintenance — email reports, Brave Community topics, bulk commenting, auto-clicking, extension cleanup, and screenshots.
+**Multi-platform ad/tracker/cookie-popup/annoyance filter report preparer.**
 
-Live page: https://AdguardFilters-Issue-Automation-Python-CLI.oriz.in
+Builds pre-filled GitHub issue URLs for uBlock uAssets, AdGuard Filters, EasyList, Brave, DandelionSprout/adfilt, and more — then opens them in your browser for **1-click human submit**.
 
----
-
-## Features
-
-- **Email Reporting** — generate and send ad-blocking reports via email.
-- **Brave Community Reporting** — automate creating new topics on the Brave Community forum.
-- **Automated Commenting** — post predefined comments across multiple tabs with one command.
-- **Auto-Clicker** — replay a sequence of clicks and key presses for repetitive tasks.
-- **Extension Management** — remove multiple browser extensions quickly.
-- **Screenshot Utility** — capture a region or the full screen.
+Live site: **https://filter-report.oriz.in**
 
 ---
 
-## Installation
+## Why semi-automatic, not headless?
 
-Requires Python 3.9+.
+Every major filter-list project (uBlock, AdGuard, EasyList, Brave) explicitly **requires human reporters**. Automated/bot issue creation leads to bans and revoked access. This tool does the tedious part (formatting the correct template, filling title/body, constructing the URL) and leaves the actual Submit click to you. That 1-click is intentional — it is the only policy-compliant design.
+
+---
+
+## Supported platforms
+
+| ID         | Name                    | Type                | Accepted categories                                         |
+|------------|-------------------------|---------------------|-------------------------------------------------------------|
+| `uassets`  | uBlock uAssets          | GitHub Issues       | ad, tracker, cookie-popup, annoyance, social-share          |
+| `adguard`  | AdGuard Filters         | GitHub Issues       | ad, tracker, cookie-popup, annoyance, social-share, newsletter-popup, paywall |
+| `easylist` | EasyList                | GitHub Issues       | ad, tracker, annoyance                                      |
+| `fanboy`   | Fanboy Annoyances       | GitHub Issues (EasyList tracker) | cookie-popup, annoyance, social-share, newsletter-popup |
+| `brave`    | Brave adblock-lists     | GitHub Issues       | ad, tracker, annoyance                                      |
+| `adfilt`   | DandelionSprout/adfilt  | GitHub Discussions  | ad, tracker, cookie-popup, annoyance, social-share, newsletter-popup |
+| `peterlowe`| Peter Lowe's List       | Web form            | ad, tracker                                                 |
+| `ph00lt0`  | ph00lt0/blocklist       | GitHub Issues       | ad, tracker, annoyance                                      |
+
+---
+
+## Install
 
 ```bash
-git clone https://github.com/chirag127/AdguardFilters-Issue-Automation-Python-CLI.git
-cd AdguardFilters-Issue-Automation-Python-CLI
-pip install -e .
+pip install filter-report
 ```
 
-Copy `.env.example` to `.env` and fill in the values (SMTP creds, GitHub token, etc.).
+Or from source:
 
 ```bash
-cp .env.example .env
+pip install -e .
 ```
 
 ---
 
 ## Usage
 
+### Prepare reports and open in browser
+
 ```bash
-python src/main.py <task>
+# Cookie popup on example.com → uBlock + AdGuard (default)
+filter-report prepare https://example.com --category cookie-popup
+
+# Ad on example.com → three platforms
+filter-report prepare https://example.com -c ad -p uassets,adguard,easylist
+
+# With CSS selector, no browser (print URLs only)
+filter-report prepare https://example.com -c tracker \
+  --selector "#tracker-pixel" \
+  --no-browser
+
+# All annoyances platforms
+filter-report prepare https://example.com -c annoyance \
+  -p uassets,adguard,easylist,fanboy,brave,adfilt,ph00lt0
 ```
 
-`<task>` is one of:
+### List platforms
 
-| Task | Action |
-|------|--------|
-| `report-email` | Generate + send an ad-blocking report by email |
-| `report-brave` | Create a new topic on the Brave Community forum |
-| `post-comments` | Post predefined comments across open tabs |
-| `auto-click` | Replay a click/keypress sequence |
-| `remove-extensions` | Bulk-remove browser extensions |
-| `screenshot` | Capture a region or full screen |
+```bash
+filter-report platforms
+```
+
+### Generate an adblock rule
+
+```bash
+filter-report rule ads.example.com
+# => ||ads.example.com^
+
+filter-report rule banner.example.com --type hide
+# => ##.banner.example.com
+```
 
 ---
 
-## Project layout
+## Categories
 
-```
-src/
-  main.py             # CLI entry point / task dispatch
-  email_reporter.py   # email report generation + send
-  brave_reporter.py   # Brave Community topic automation
-  comment_placer.py   # multi-tab comment posting
-  auto_clicker.py     # click/keypress replay
-  extension_remover.py# browser extension removal
-  screenshot.py       # screen capture
-  browser_utils.py    # shared browser helpers
-  automation_utils.py # shared automation helpers
-  file_utils.py       # file helpers
-  config.py           # env/config loading
-assets/               # reference images for image-matching automation
-```
+| ID                | Description                        |
+|-------------------|------------------------------------|
+| `ad`              | Advertisement / ad element         |
+| `tracker`         | Tracker / analytics script         |
+| `cookie-popup`    | Cookie consent popup / GDPR banner |
+| `social-share`    | Social share / like button widget  |
+| `newsletter-popup`| Newsletter / email capture popup   |
+| `annoyance`       | General annoyance                  |
+| `paywall`         | Soft paywall / ad-block detector   |
 
 ---
 
-## Contributing
+## How it works
 
-Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+1. `filter-report prepare <url> --category <cat> --platforms <ids>` builds the correct issue title + body for each platform using GitHub's `?title=...&body=...` query-param pre-fill.
+2. Each URL is opened in your default browser — one tab per platform.
+3. You review the pre-filled form and click **Submit**. Done.
+
+No credentials required. No GitHub token. No API calls. Pure URL construction.
 
 ---
 
 ## License
 
-[MIT](LICENSE) © Chirag Singhal.
-
----
-
-## Star this repo
-
-If this project is useful, please consider giving it a star.
+MIT — see [LICENSE](LICENSE).

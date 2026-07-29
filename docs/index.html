@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>filter-report — multi-platform filter report preparer</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --accent: #58a6ff;
+    --accent2: #3fb950;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --tag-bg: #1f2937;
+    --code-bg: #1c2128;
+    --radius: 8px;
+    --font: 'Inter', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* nav */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,17,23,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+  }
+  .nav-brand { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* hero */
+  .hero {
+    padding: 5rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .badge-row {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .badge-row img { height: 20px; }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .tagline {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+  .btn-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary { background: var(--accent); color: #0d1117; }
+  .btn-primary:hover { background: #79c0ff; }
+  .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* sections */
+  section { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+  h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem; }
+  h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--accent); }
+
+  /* callout */
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .callout p { color: var(--muted); font-size: 0.95rem; }
+
+  /* install */
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  code { font-family: var(--mono); font-size: 0.875em; }
+  .comment { color: var(--muted); }
+  .cmd { color: var(--accent2); }
+  .arg { color: var(--accent); }
+  .str { color: #f97316; }
+
+  /* platforms table */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th { text-align: left; padding: 0.75rem 1rem; background: var(--surface); color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.78rem;
+    font-family: var(--mono);
+    margin: 0.1rem;
+  }
+  .type-badge {
+    font-size: 0.78rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .type-issues { background: #1a3a52; color: #58a6ff; }
+  .type-discussions { background: #1a3a2a; color: #3fb950; }
+  .type-form { background: #3a2a1a; color: #f97316; }
+
+  /* cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card p { color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; }
+
+  /* footer */
+  footer {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    nav { padding: 0.75rem 1rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 2rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">filter-report</a>
+  <div class="nav-links">
+    <a href="#install">Install</a>
+    <a href="#platforms">Platforms</a>
+    <a href="#usage">Usage</a>
+    <a href="https://github.com/chirag127/filter-report">GitHub</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge-row">
+    <a href="https://github.com/chirag127/filter-report/stargazers">
+      <img src="https://img.shields.io/github/stars/chirag127/filter-report?style=social" alt="Stars">
+    </a>
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT">
+    <img src="https://img.shields.io/pypi/v/filter-report" alt="PyPI">
+    <img src="https://img.shields.io/badge/python-3.9+-blue" alt="Python">
+  </div>
+  <h1>filter-report</h1>
+  <p class="tagline">
+    Multi-platform ad/tracker/cookie-popup/annoyance filter report preparer.
+    Pre-fills issue templates for uBlock, AdGuard, EasyList, Brave, and more —
+    then opens them for 1-click human submit.
+  </p>
+  <div class="btn-row">
+    <a href="#install" class="btn btn-primary">Get started</a>
+    <a href="https://github.com/chirag127/filter-report" class="btn btn-secondary">View on GitHub</a>
+  </div>
+</div>
+
+<section id="why">
+  <div class="callout">
+    <h3>Why semi-automatic, not headless?</h3>
+    <p>
+      Every major filter-list project — uBlock, AdGuard, EasyList, Brave — explicitly requires
+      <strong>human reporters</strong>. Automated bot submissions lead to bans and revoked access.
+      filter-report does the tedious work (correct template, formatted title/body, URL construction)
+      and leaves the actual Submit click to you. That 1-click is intentional — it is the only
+      policy-compliant design.
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>8 platforms, 1 command</h3>
+      <p>Prepare reports for uBlock, AdGuard, EasyList, Brave, DandelionSprout, Peter Lowe, ph00lt0 simultaneously.</p>
+    </div>
+    <div class="card">
+      <h3>Pre-filled templates</h3>
+      <p>Each platform gets the right issue format — title, body, checkboxes, selector — no copy-paste.</p>
+    </div>
+    <div class="card">
+      <h3>Zero credentials</h3>
+      <p>No GitHub token. No API calls. Pure URL construction with query-param pre-fill. Works offline.</p>
+    </div>
+    <div class="card">
+      <h3>Rule generator</h3>
+      <p>Generate adblock-syntax rules (||domain^, ##.selector) to add to your own lists instantly.</p>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <h2>Install</h2>
+  <pre><span class="cmd">pip install</span> <span class="arg">filter-report</span></pre>
+  <p style="color:var(--muted);font-size:0.9rem;margin-top:0.5rem">Requires Python 3.9+. Dependencies: click, requests.</p>
+</section>
+
+<section id="usage">
+  <h2>Usage</h2>
+
+  <h3>Prepare reports (opens in browser)</h3>
+  <pre><span class="comment"># cookie popup on example.com — uBlock + AdGuard (default)</span>
+<span class="cmd">filter-report prepare</span> <span class="str">https://example.com</span> <span class="arg">--category</span> cookie-popup
+
+<span class="comment"># ad — three platforms</span>
+<span class="cmd">filter-report prepare</span> <span class="str">https://example.com</span> <span class="arg">-c</span> ad <span class="arg">-p</span> uassets,adguard,easylist
+
+<span class="comment"># with CSS selector, print URLs without opening browser</span>
+<span class="cmd">filter-report prepare</span> <span class="str">https://example.com</span> <span class="arg">-c</span> tracker \
+  <span class="arg">--selector</span> <span class="str">"#tracker-pixel"</span> \
+  <span class="arg">--no-browser</span></pre>
+
+  <h3>List platforms</h3>
+  <pre><span class="cmd">filter-report platforms</span></pre>
+
+  <h3>Generate an adblock rule</h3>
+  <pre><span class="cmd">filter-report rule</span> ads.example.com
+<span class="comment"># =&gt; ||ads.example.com^</span>
+
+<span class="cmd">filter-report rule</span> banner.example.com <span class="arg">--type</span> hide</pre>
+</section>
+
+<section id="platforms">
+  <h2>Supported platforms</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Accepted categories</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>uassets</code></td>
+          <td>uBlock uAssets</td>
+          <td><span class="type-badge type-issues">GitHub Issues</span></td>
+          <td>
+            <span class="tag">ad</span><span class="tag">tracker</span><span class="tag">cookie-popup</span><span class="tag">annoyance</span><span class="tag">social-share</span>
+          </td>
+        </tr>
+        <tr>
+          <td><code>adguard</code></td>
+          <td>AdGuard Filters</td>
+          <td><span class="type-badge type-issues">GitHub Issues</span></td>
+          <td>
+            <span class="tag">ad</span><span class="tag">tracker</span><span class="tag">cookie-popup</span><span class="tag">annoyance</span><span class="tag">social-share</span><span class="tag">newsletter-popup</span><span class="tag">paywall</span>
+          </td>
+        </tr>
+        <tr>
+          <td><code>easylist</code></td>
+          <td>EasyList</td>
+          <td><span class="type-badge type-issues">GitHub Issues</span></td>
+          <td>
+            <span class="tag">ad</span><span class="tag">tracker</span><span class="tag">annoyance</span>
+          </td>
+        </tr>
+        <tr>
+          <td><code>fanboy</code></td>
+          <td>Fanboy Annoyances</td>
+          <td><span class="type-badge type-issues">GitHub Issues (EasyList)</span></td>
+          <td>
+            <span class="tag">cookie-popup</span><span class="tag">annoyance</span><span class="tag">social-share</span><span class="tag">newsletter-popup</span>
+          </td>
+        </tr>
+        <tr>
+          <td><code>brave</code></td>
+          <td>Brave adblock-lists</td>
+          <td><span class="type-badge type-issues">GitHub Issues</span></td>
+          <td>
+            <span class="tag">ad</span><span class="tag">tracker</span><span class="tag">annoyance</span>
+          </td>
+        </tr>
+        <tr>
+          <td><code>adfilt</code></td>
+          <td>DandelionSprout/adfilt</td>
+          <td><span class="type-badge type-discussions">GitHub Discussions</span></td>
+          <td>
+            <span class="tag">ad</span><span class="tag">tracker</span><span class="tag">cookie-popup</span><span class="tag">annoyance</span><span class="tag">social-share</span><span class="tag">newsletter-popup</span>
+          </td>
+        </tr>
+        <tr>
+          <td><code>peterlowe</code></td>
+          <td>Peter Lowe's List</td>
+          <td><span class="type-badge type-form">Web form</span></td>
+          <td>
+            <span class="tag">ad</span><span class="tag">tracker</span>
+          </td>
+        </tr>
+        <tr>
+          <td><code>ph00lt0</code></td>
+          <td>ph00lt0/blocklist</td>
+          <td><span class="type-badge type-issues">GitHub Issues</span></td>
+          <td>
+            <span class="tag">ad</span><span class="tag">tracker</span><span class="tag">annoyance</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <p>
+    Built by <a href="https://github.com/chirag127">chirag127</a> &middot;
+    <a href="https://github.com/chirag127/filter-report">GitHub</a> &middot;
+    <a href="https://github.com/chirag127/filter-report/blob/main/LICENSE">MIT License</a>
+  </p>
+</footer>
+
+</body>
+</html>
