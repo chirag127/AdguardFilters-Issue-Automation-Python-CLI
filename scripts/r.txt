@@ -1,4 +1,0 @@
-opencv-python
-pillow
-pyautogui
-pyperclip
